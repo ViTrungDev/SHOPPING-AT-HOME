@@ -1,4 +1,69 @@
-.test{
-font-size: 18px;
-
+*{
+    box-sizing:border-box;
+}
+:root{
+    --primary-color:#78a305;
+    --bs-btn-border-color: transparent !important; /* Xóa viền mặc định */
+    --bs-btn-hover-border-color: transparent !important; /* Xóa viền khi hover */
+}
+body{
+    font-size:1.6rem;
+    font-family: "Poppins", sans-serif;
+}
+/* ===================================== common all =========================== */
+.main-content {
+    width: 1170px;
+    max-width: calc(100% - 48px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+.btn {
+    color: #fff;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-radius: 14px;
+    background: var(--primary-color) !important;
+    padding: 20px 40px;
+  }
+.btn:hover {
+    opacity: 0.8;
+    transition: all ease 0.8s;
+  }
+a {
+    text-decoration: none;
+    color: black;
+  }
+.heading-lv2 {
+    color: #0d1111;
+    font-size: 6.2rem;
+    font-weight: 700;
+    line-height: 1.17; /* 116.129% */
+  }
+/*============================== 404 =========================*/
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+.err{
+width:auto;
+height: 200px;
+}
+.err-title{
+  text-align:center;
+}
+.btn-err{
+  display: block;
+  margin: 0 auto;
+  margin-left: 15px;
+  background-color:var(--primary-color) !important;
+  outline:none;
+  border:none !important;
+}
+.btn-err:hover{
+  border: none;
 }
