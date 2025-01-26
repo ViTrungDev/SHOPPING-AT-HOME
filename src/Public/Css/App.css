@@ -87,7 +87,6 @@ a {
 .header {
   background-color: #fff;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  margin-bottom:38px;
 }
 
 .header-top {
@@ -208,5 +207,7 @@ span > a {
   font-size: 14px;
   padding-left: 3px;
 }
+
+/*========================== Home-main ======================*/
 
 /*# sourceMappingURL=App.css.map */
