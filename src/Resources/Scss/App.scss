@@ -114,6 +114,14 @@ span>a{
   background-color: #666;
   margin: -2px 10px;
 }
+.header__auth--hover{
+  transition: transform 0.3s, color 0.3s, font-size 0.3s;
+}
+.header__auth--hover:hover{
+  color:#000;
+  font-size:var(font-primary);
+  transform: scale(1.2);
+}
 #header-search{
   width: 855px;
   padding-left: 52px;
