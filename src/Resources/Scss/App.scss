@@ -9,7 +9,7 @@
     --font-big:16px;
 }
 body{
-    font-size:1.6rem;
+    font-size:0.875 rem;
     font-family: "Inter", sans-serif;
     background: #D9D9D9 !important  ;
 }
@@ -326,4 +326,158 @@ font-weight: 500;
 .Selling-item:hover {
   transform: scale(1.1);
   background-color: lightblue;
+}
+/*=================================== auth/register ============================*/
+.register_container {
+  width: 100%;
+  height: 696px;
+  background: #DFDFDF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__form {
+  display: flex; 
+  width: 1328px;
+  height: 640px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.50);
+}
+
+.register__form--left, .register__form--right {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__form--left {
+  padding: 20px; 
+  flex: 0 0 40%;
+  }
+
+.register__form--right {
+  padding: 20px; 
+  flex: 0 0 60%;
+}
+
+.register__form--right > img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: lightgray 50% / cover no-repeat;
+}
+/* register left*/
+.register__form--header{
+  display: flex;
+  margin: -37px;
+}
+
+.Logo2{
+  margin-left: -223px;
+  margin-top: -37px;
+  position: relative;
+  top: -38px;
+}
+.register__form--content>h1{
+  color: #000;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.register__form--content>p{
+  color: #000;
+  font-style: normal;
+  line-height: normal;
+}
+#surname, #username, #email, #phone, #password, #confirm_password{
+  height: 41px;
+  margin-bottom: 14px;
+}
+input {
+  border: 2px solid #A1A1A1;
+  border-radius: 10px; 
+}
+input {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+.register__form--header a {
+  pointer-events: auto; /* Đảm bảo rằng pointer-events không bị đặt thành none */
+  display: inline-block; /* Đảm bảo rằng thẻ a có thể nhận sự kiện click */
+}
+
+/* Định dạng label */
+.register__form--input{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột bằng nhau */
+  column-gap: 12px;
+}
+/* Đổi màu viền khi focus */
+input:focus {
+  border-color: rgb(150, 150, 200);
+}
+#remember{
+display:inline-block;
+width: auto;
+}
+.remember-desc{
+  color: #727272;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.register__form--remember{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 36px;
+}
+.submit{
+  width: 407px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: #9ECE17;
+  color: #FFF;
+  font-size: var(--font-big);
+  text-align: center;
+  font-weight: 600;
+  border: none;
+}
+.register__form--footer  a{
+  color: #FF8682;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.register--other{
+  color: #000;
+  text-align: center;
+  font-size: var(--font-primary);
+  font-style: normal;
+  line-height: normal;
+}
+.register--other::after{
+  content: "";
+  display: inline-block;
+  width: 140.345px;
+  height: 1px;
+  background-color: #000;
+  margin: -2px 10px;
+  position: relative;
 }

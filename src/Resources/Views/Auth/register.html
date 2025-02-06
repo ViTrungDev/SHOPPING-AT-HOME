@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="/Css/App.css"> <!-- Đảm bảo đường dẫn này đúng -->
+</head>
+<body>
+  <div class="register_container">
+    <div class="register__form">
+      <div class="register__form--left">
+        <div class="register__form--logo">
+            <a href="/"><img src="/Acssets/Icon/Logo2.svg" alt="Logo"></a>
+        </div>
+        <div class="register__form--content">
+          <h1>Đăng ký</h1>
+          <p>Đăng ký tài khoản để sử dụng dịch vụ của chúng tôi</p>
+          <form action="/auth/register" method="POST">
+            <div class="register__form--input">
+              <div>
+                <input type="text" id="surname" name="surname" required placeholder="Họ">
+              </div>
+              <div>
+                <input type="text" id="username" name="username" required placeholder="Tên">
+              </div>
+            </div>
+            <div class="register__form--input">
+              <div>
+                <input type="email" id="email" name="email" required placeholder="Email">
+              </div>
+              <div>
+                <input type="text" id="phone" name="phone" required placeholder="Số điện thoại">
+              </div>
+            </div>
+            <div class="register__form--input">
+              <div>
+                <input type="password" id="password" name="password" required placeholder="Mật khẩu">
+              </div>
+              <div>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Nhập lại mật khẩu">
+              </div>
+            </div>
+            <div class="register__form--remember">
+              <input type="checkbox" name="remember" id="remember">
+              <label for="remember" class="remember-desc">Ghi nhớ mật khẩu</label>
+            </div>
+            <div class="register__form--submit">
+              <button type="submit" class="submit">Đăng ký</button>
+            </div>
+          </form>
+          <div class="register__form--footer">
+            <p>Bạn đã có tài khoản? <a href="/auth/login">Đăng nhập</a></p>
+          </div>
+          <p class="desc">Hoặc đăng nhập bằng</p>
+          <div class="social">
+            <a href="#" class="social__item">
+              <img src="/Acssets/Icon/facebook.svg" alt="Facebook">
+            </a>
+            <a href="#" class="social__item">
+              <img src="/Acssets/Icon/gg.svg" alt="Google">
+            </a>
+            <a href="#" class="social__item">
+              <img src="/Acssets/Icon/apple.svg" alt="Apple">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="register__form--right">
+        <img src="/Acssets/image/image_auth.png" alt="Shopping at home">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

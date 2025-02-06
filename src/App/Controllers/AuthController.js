@@ -1,6 +1,12 @@
 const bcrypt = require("bcrypt");
 const User = require("../Model/User_data/User");
+const path = require("path");
 class AuthController {
+  ViewRegister(req, res) {
+    res.sendFile(
+      path.join(__dirname, "../../Resources/Views/Auth/register.html")
+    );
+  }
   async register(req, res) {
     try {
       console.log("Received request:", req.body);
