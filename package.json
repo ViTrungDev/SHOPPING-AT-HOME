@@ -1,0 +1,28 @@
+{
+  "name": "shopping-at-home",
+  "version": "1.0.0",
+  "description": "Chuyên đề 1, 2",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "sass --watch src/Resources/Scss/App.scss:src/Public/Css/App.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Trung Vi",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.9.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
+    "sass": "^1.83.4"
+  }
+}

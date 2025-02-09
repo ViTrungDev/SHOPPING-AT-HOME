@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="/Css/App.css"> 
+</head>
+<body>
+  <div class="register_container">
+    <div class="register__form">
+      <div class="register__form--left">
+        <div class="register__form--logo">
+            <a href="/"><img src="/Acssets/Icon/Logo2.svg" alt="Logo"></a>
+        </div>
+        <div class="register__form--content">
+          <h1>Đăng ký</h1>
+          <p>Đăng ký tài khoản để sử dụng dịch vụ của chúng tôi</p>
+          <form id="registerForm">
+            <div class="register__form--input">
+              <div>
+                <input type="text" id="surname" name="surname" required placeholder="Họ">
+              </div>
+              <div>
+                <input type="text" id="username" name="username" required placeholder="Tên">
+              </div>
+            </div>
+            <div class="register__form--input">
+              <div>
+                <input type="email" id="email" name="email" required placeholder="Email">
+              </div>
+              <div>
+                <input type="text" id="phone" name="phone" required placeholder="Số điện thoại">
+              </div>
+            </div>
+            <div class="register__form--input">
+              <div>
+                <input type="password" id="password" name="password" required placeholder="Mật khẩu" class="input_password">
+              </div>
+              <br>
+              <div>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Nhập lại mật khẩu" class="input_password">
+              </div>
+            </div>
+            <div class="register__form--remember">
+              <input type="checkbox" name="remember" id="remember">
+              <label for="remember" class="remember-desc">Ghi nhớ mật khẩu</label>
+            </div>
+            <div class="register__form--submit">
+              <button type="submit" class="submit">Đăng ký</button>
+            </div>
+          </form>
+          <div class="register__form--footer">
+            <p>Bạn đã có tài khoản? <a href="/auth/login">Đăng nhập</a></p>
+          </div>
+          <p class="desc login--other">Hoặc đăng nhập bằng</p>
+          <div class="social">
+            <a href="#" class="social__item">
+              <img src="/Acssets/Icon/facebook.svg" alt="Facebook">
+            </a>
+            <a href="#" class="social__item">
+              <img src="/Acssets/Icon/gg.svg" alt="Google">
+            </a>
+            <a href="#" class="social__item">
+              <img src="/Acssets/Icon/apple.svg" alt="Apple">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="register__form--right">
+        <img src="/Acssets/image/image_auth.png" alt="Shopping at home">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  document.getElementById('registerForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    // Get data register form
+    const fromData = {
+      surname: document.getElementById('surname').value,
+      username: document.getElementById('username').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      password: document.getElementById('password').value,
+      confirm_password: document.getElementById('confirm_password').value,
+      remember: document.getElementById('remember').checked
+    };
+    // Check password
+    if(fromData.password !== fromData.confirm_password){
+      return alert('Mật khẩu không khớp');
+    }
+    // Send data to server
+    try {
+      const response = await fetch('/auth/register',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(fromData)
+      });
+      const result = await response.json();
+      if(response.ok || 'Đăng ký thành công'){
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.log('Lỗi khi gửi yêu cầu',error);
+    }
+  })
+</script>
