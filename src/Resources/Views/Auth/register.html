@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
-  <link rel="stylesheet" href="/Css/App.css"> <!-- Đảm bảo đường dẫn này đúng -->
+  <link rel="stylesheet" href="/Css/App.css"> 
 </head>
 <body>
   <div class="register_container">
@@ -35,10 +35,11 @@
             </div>
             <div class="register__form--input">
               <div>
-                <input type="password" id="password" name="password" required placeholder="Mật khẩu">
+                <input type="password" id="password" name="password" required placeholder="Mật khẩu" class="input_password">
               </div>
+              <br>
               <div>
-                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Nhập lại mật khẩu">
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Nhập lại mật khẩu" class="input_password">
               </div>
             </div>
             <div class="register__form--remember">
@@ -52,7 +53,7 @@
           <div class="register__form--footer">
             <p>Bạn đã có tài khoản? <a href="/auth/login">Đăng nhập</a></p>
           </div>
-          <p class="desc">Hoặc đăng nhập bằng</p>
+          <p class="desc login--other">Hoặc đăng nhập bằng</p>
           <div class="social">
             <a href="#" class="social__item">
               <img src="/Acssets/Icon/facebook.svg" alt="Facebook">

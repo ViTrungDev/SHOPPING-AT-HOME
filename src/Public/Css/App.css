@@ -406,6 +406,13 @@ span > a {
   box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+.register__form--logo {
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 130px;
+}
+
 .register__form--left, .register__form--right {
   flex: 1;
   display: flex;
@@ -458,9 +465,9 @@ span > a {
   line-height: normal;
 }
 
-#surname, #username, #email, #phone, #password, #confirm_password {
+#surname, #username, #email, #phone {
   height: 41px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 input {
@@ -469,26 +476,30 @@ input {
 }
 
 input {
-  font-family: "Segoe UI", sans-serif;
   font-size: 100%;
   padding: 0.8em;
   outline: none;
   border: 2px solid rgb(200, 200, 200);
   background-color: transparent;
-  border-radius: 20px;
-  width: 100%;
+  border-radius: 10px;
   transition: border-color 0.3s ease;
 }
 
 .register__form--header a {
-  pointer-events: auto; /* Đảm bảo rằng pointer-events không bị đặt thành none */
-  display: inline-block; /* Đảm bảo rằng thẻ a có thể nhận sự kiện click */
+  pointer-events: auto;
+  display: inline-block;
+}
+
+#password, #confirm_password {
+  width: 458px;
+  height: 41px;
+  margin-bottom: 12px;
 }
 
 /* Định dạng label */
 .register__form--input {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột bằng nhau */
+  grid-template-columns: repeat(2, 0fr); /* Chia thành 2 cột bằng nhau */
   column-gap: 12px;
 }
 
@@ -537,6 +548,12 @@ input:focus {
   line-height: normal;
 }
 
+.register__form--footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .register--other {
   color: #000;
   text-align: center;
@@ -553,6 +570,53 @@ input:focus {
   background-color: #000;
   margin: -2px 10px;
   position: relative;
+}
+
+.login--other {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login--other::after {
+  content: "";
+  display: inline-block;
+  width: 140px;
+  height: 1px;
+  background-color: #000;
+  position: relative;
+  top: 2px;
+  left: 5px;
+}
+
+.login--other::before {
+  content: "";
+  display: inline-block;
+  width: 140px;
+  height: 1px;
+  background-color: #000;
+  position: relative;
+  top: 2px;
+  right: 5px;
+}
+
+.social {
+  display: flex;
+  column-gap: 20px;
+  justify-content: center;
+}
+
+.social__item {
+  display: flex;
+  width: 123px;
+  height: 42px;
+  padding: 6.213px 9.32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #3869EB;
 }
 
 /*# sourceMappingURL=App.css.map */
