@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const result = await response.json();
 
       if (response.ok) {
-        window.location.href = "/";
+        window.location.href = "/auth/login";
       } else {
         console.log("Lỗi khi gửi yêu cầu", result);
       }

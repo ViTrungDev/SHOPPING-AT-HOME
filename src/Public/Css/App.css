@@ -409,8 +409,8 @@ span > a {
 .register__form--logo {
   display: block;
   position: absolute;
-  top: 60px;
-  left: 130px;
+  top: 46px;
+  left: 124px;
 }
 
 .register__form--left, .register__form--right {
@@ -687,6 +687,16 @@ input:focus {
   100% {
     box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
   }
+}
+/*==============================/auth/login==============================*/
+#PhoneOrEmail, #inputPassword {
+  width: 458px;
+  height: 41px;
+  margin-bottom: 12px;
+}
+
+.register__form--remember {
+  margin-top: 19px;
 }
 
 /*# sourceMappingURL=App.css.map */

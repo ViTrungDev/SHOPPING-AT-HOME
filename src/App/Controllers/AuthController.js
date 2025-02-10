@@ -11,7 +11,10 @@ class AuthController {
       path.join(__dirname, "../../Resources/Views/Auth/register.html")
     );
   }
-
+  // display login page
+  ViewLogin(req, res) {
+    res.sendFile(path.join(__dirname, "../../Resources/Views/Auth/login.html"));
+  }
   // create user
   async register(req, res) {
     try {
@@ -65,6 +68,40 @@ class AuthController {
       });
     } catch (error) {
       logger.error("Error register", error.message);
+      res.status(500).json({ message: "Lỗi server", error: error.message });
+    }
+  }
+  // login
+  async login(req, res) {
+    try {
+      let { email, password } = req.body;
+
+      // check data input
+      if (!email || !password) {
+        logger.warn("Invalid data input");
+        return res
+          .status(400)
+          .json({ message: "Vui lòng điền đầy đủ thông tin" });
+      }
+
+      // check email
+      const user = await User.findOne({ email });
+      if (!user) {
+        logger.warn(`Email ${email} is not registered`);
+        return res.status(400).json({ message: "Email này chưa được đăng ký" });
+      }
+
+      // check password
+      const validPassword = await bcrypt.compare(password, user.password);
+      if (!validPassword) {
+        logger.warn(`Password is incorrect for ${email}`);
+        return res.status(400).json({ message: "Mật khẩu không chính xác" });
+      }
+
+      logger.info(`User ${email} has logged in`);
+      res.json({ message: "Đăng nhập thành công!" });
+    } catch (error) {
+      logger.error("Error login", error.message);
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }
   }
