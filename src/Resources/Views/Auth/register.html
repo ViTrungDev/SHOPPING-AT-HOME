@@ -1,8 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="57x57" href="/Acssets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/Acssets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/Acssets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/Acssets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/Acssets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/Acssets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/Acssets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/Acssets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Acssets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/Acssets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Acssets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/Acssets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Acssets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/Acssets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">    
   <title>Register</title>
   <link rel="stylesheet" href="/Css/App.css"> 
 </head>
@@ -73,40 +88,6 @@
     </div>
   </div>
 </body>
-</html>
-<script>
-  document.getElementById('registerForm').addEventListener('submit', async function(e){
-    e.preventDefault();
-
-    // Get data register form
-    const fromData = {
-      surname: document.getElementById('surname').value,
-      username: document.getElementById('username').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      password: document.getElementById('password').value,
-      confirm_password: document.getElementById('confirm_password').value,
-      remember: document.getElementById('remember').checked
-    };
-    // Check password
-    if(fromData.password !== fromData.confirm_password){
-      return alert('Mật khẩu không khớp');
-    }
-    // Send data to server
-    try {
-      const response = await fetch('/auth/register',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(fromData)
-      });
-      const result = await response.json();
-      if(response.ok || 'Đăng ký thành công'){
-        window.location.href = '/';
-      }
-    } catch (error) {
-      console.log('Lỗi khi gửi yêu cầu',error);
-    }
-  })
-</script>
+<!-- <script src="../../../Util/fetchWithLoading.js"></script> -->
+<script src="/Js/register.js"></script>
+<script src="/Js/registerLoading.js"></script>
