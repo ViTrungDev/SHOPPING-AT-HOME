@@ -621,15 +621,17 @@ input:focus {
 }
 
 .loader {
-  position: relative;
-  width: 2.5em;
-  height: 2.5em;
-  transform: rotate(165deg);
-  display: none;
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.active {
-  display: block;
+.loader.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .loader:before, .loader:after {
@@ -685,11 +687,6 @@ input:focus {
   100% {
     box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
   }
-}
-.loader {
-  position: absolute;
-  top: calc(50% - 1.25em);
-  left: calc(50% - 1.25em);
 }
 
 /*# sourceMappingURL=App.css.map */

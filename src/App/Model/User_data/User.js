@@ -8,7 +8,6 @@ const UserSchema = new Schema(
       required: true,
       minlength: 2,
       max_length: 255,
-      unique: true,
     },
     password: {
       type: String,
@@ -28,6 +27,7 @@ const UserSchema = new Schema(
       required: true,
       minlength: 10,
       max_length: 255,
+      unique: true,
     },
     surname: {
       type: String,

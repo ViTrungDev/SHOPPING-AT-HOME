@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const User = require("../Model/User_data/User");
 const path = require("path");
 const logger = require("../../Util/logger");
+const crypto = require("crypto");
 
 class AuthController {
   // display register page
@@ -14,7 +15,7 @@ class AuthController {
   // create user
   async register(req, res) {
     try {
-      const { username, password, email, phone, surname } = req.body;
+      let { username, password, email, phone, surname } = req.body;
 
       // check data input
       if (!username || !password || !email || !phone || !surname) {
@@ -25,21 +26,27 @@ class AuthController {
       }
 
       // check email
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
+      const existingEmail = await User.findOne({ email });
+      if (existingEmail) {
         logger.warn(`Email ${email} has been registered`);
         return res.status(400).json({ message: "Email này đã được đăng ký" });
       }
 
+      // Tạo username mới nếu bị trùng
+      let newUsername = username;
+      while (await User.findOne({ username: newUsername })) {
+        // Tạo số ngẫu nhiên từ 1000 đến 9999
+        const randomNumber = crypto.randomInt(1000, 9999);
+        newUsername = `${username}${randomNumber}`;
+      }
+
       // hash password
-      console.log("Received request:", req.body);
       logger.info(`Start hashing password for ${email}`);
       const hashedPassword = await bcrypt.hash(password, 10);
-      console.log("Hashed password:", hashedPassword);
 
       // create new user
       const newUser = new User({
-        username,
+        username: newUsername, // dùng username mới đã sửa
         password: hashedPassword,
         email,
         phone,
@@ -48,13 +55,16 @@ class AuthController {
 
       // save user into database
       const savedUser = await newUser.save();
-      console.log("User created:", savedUser);
-      logger.info(`User ${email} has been created`);
-      // log
-      res.status(201).json({ message: "Đăng ký thành công!", user: savedUser });
+      logger.info(
+        `User ${email} has been created with username ${newUsername}`
+      );
+
+      res.status(201).json({
+        message: "Đăng ký thành công!",
+        user: savedUser,
+      });
     } catch (error) {
       logger.error("Error register", error.message);
-      console.error("Error:", error);
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }
   }
