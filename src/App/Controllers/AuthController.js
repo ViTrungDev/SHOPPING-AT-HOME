@@ -3,6 +3,7 @@ const User = require("../Model/User_data/User");
 const path = require("path");
 const logger = require("../../Util/logger");
 const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
 
 class AuthController {
   // display register page
@@ -71,36 +72,53 @@ class AuthController {
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }
   }
-  // login
+  /* =====================================login==================================*/
   async login(req, res) {
     try {
-      let { email, password } = req.body;
-
+      let { email, phone, password } = req.body;
       // check data input
-      if (!email || !password) {
+      if (!email && !phone) {
         logger.warn("Invalid data input");
         return res
           .status(400)
-          .json({ message: "Vui lòng điền đầy đủ thông tin" });
+          .json({ message: "Vui lòng điền email hoặc số điện thoại" });
       }
-
-      // check email
-      const user = await User.findOne({ email });
-      if (!user) {
-        logger.warn(`Email ${email} is not registered`);
-        return res.status(400).json({ message: "Email này chưa được đăng ký" });
-      }
-
       // check password
-      const validPassword = await bcrypt.compare(password, user.password);
-      if (!validPassword) {
-        logger.warn(`Password is incorrect for ${email}`);
-        return res.status(400).json({ message: "Mật khẩu không chính xác" });
+      if (!password) {
+        return res.status(400).json({ message: " Vui lòng nhập password" });
       }
+      // search user by email or phone
+      const user = await User.findOne({
+        $or: [{ phone: phone }, { email: email }],
+      });
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      // check password
+      const checkPassword = await bcrypt.compare(password, user.password);
+      if (!checkPassword) {
+        return res.status(400).json({ message: "Password is incorrect" });
+      }
+      console.log("ACCESS_TOKEN_SECRET:", process.env.TOKEN_SECRET);
+      // create access token
+      const accessToken = jwt.sign(
+        { userId: user._id, admin: user.isAdmin },
+        process.env.TOKEN_SECRET,
+        { expiresIn: "60s" }
+      );
+      console.log(accessToken);
 
-      logger.info(`User ${email} has logged in`);
-      res.json({ message: "Đăng nhập thành công!" });
+      res.cookie("token", accessToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      });
+      res.status(200).json({
+        message: "Đăng nhập thành công!",
+        accessToken,
+      });
     } catch (error) {
+      console.error("Lỗi chi tiết:", error.stack);
       logger.error("Error login", error.message);
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }

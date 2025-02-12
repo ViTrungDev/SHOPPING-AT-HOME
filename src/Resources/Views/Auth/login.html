@@ -31,16 +31,19 @@
           <div class="register__form--content">
             <h1>Đăng nhập</h1>
             <p>Đăng nhập để sử dụng dịch vụ của chúng tôi</p>
-            <form id="registerForm">
+            <form id="LoginForm">
               <div class="register__form--input">
                 
                   <input type="text" id="PhoneOrEmail" name="Phone" required placeholder="Số điện thoại hoặc Email" class="input_password">
                 <br>
-                  <input type="text" id="inputPassword "name="input_password" required placeholder="Nhập mật khẩu" class="input_password">
+                  <input type="password" id="inputPassword "name="input_password" required placeholder="Nhập mật khẩu" class="input_password">
               </div>
-              <div class="register__form--remember">
-                <input type="checkbox" name="remember" id="remember">
-                <label for="remember" class="remember-desc">Ghi nhớ mật khẩu</label>
+              <div class="login__form--remember">
+                <div>
+                  <input type="checkbox" name="remember" id="remember">
+                  <label for="remember" class="remember-desc">Ghi nhớ mật khẩu</label>
+                </div>
+                <p>Quên mật khẩu</p>
               </div>
               <div class="register__form--submit">
                 <button type="submit" class="submit">Đăng nhập</button>

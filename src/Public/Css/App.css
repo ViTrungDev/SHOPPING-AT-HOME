@@ -521,11 +521,28 @@ input:focus {
   line-height: normal;
 }
 
-.register__form--remember {
+.register__form--remember > div {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 36px;
+}
+
+.register__form--remember {
+  display: flex;
+  align-items: center;
+  margin-bottom: 19px;
+}
+
+.register__form--remember > p {
+  color: #FF8682;
+  text-align: right;
+  font-size: var(--font-primary);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: -21px;
+  margin-right: 15px;
 }
 
 .submit {
@@ -695,8 +712,30 @@ input:focus {
   margin-bottom: 12px;
 }
 
-.register__form--remember {
+.login__form--remember > div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 36px;
+}
+
+.login__form--remember {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 19px; */
   margin-top: 19px;
+  justify-content: space-between;
+}
+
+.login__form--remember > p {
+  color: #FF8682;
+  text-align: right;
+  font-size: var(--font-primary);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: -21px;
+  margin-right: 15px;
 }
 
 /*# sourceMappingURL=App.css.map */

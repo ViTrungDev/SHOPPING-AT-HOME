@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "./src/.env" }); // path to file .env
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
@@ -5,9 +6,10 @@ const handlebars = require("express-handlebars");
 const router = require("./Router");
 const db = require("./App/Model/db/Connect");
 
+console.log("TOKEN_SECRET:", process.env.TOKEN_SECRET); // Debug
+
 const app = express();
 const port = 8080;
-
 // Middleware
 app.use(morgan("combined"));
 app.use(express.static(path.join(__dirname, "Public")));
