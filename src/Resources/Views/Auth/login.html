@@ -1,76 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="57x57" href="/Acssets/favicon/apple-icon-57x57.png">
-      <link rel="apple-touch-icon" sizes="60x60" href="/Acssets/favicon/apple-icon-60x60.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="/Acssets/favicon/apple-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="76x76" href="/Acssets/favicon/apple-icon-76x76.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="/Acssets/favicon/apple-icon-114x114.png">
-      <link rel="apple-touch-icon" sizes="120x120" href="/Acssets/favicon/apple-icon-120x120.png">
-      <link rel="apple-touch-icon" sizes="144x144" href="/Acssets/favicon/apple-icon-144x144.png">
-      <link rel="apple-touch-icon" sizes="152x152" href="/Acssets/favicon/apple-icon-152x152.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="/Acssets/favicon/apple-icon-180x180.png">
-      <link rel="icon" type="image/png" sizes="192x192"  href="/Acssets/favicon/android-icon-192x192.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="/Acssets/favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="96x96" href="/Acssets/favicon/favicon-96x96.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="/Acssets/favicon/favicon-16x16.png">
-      <link rel="manifest" href="/Acssets/favicon/manifest.json">
-      <meta name="msapplication-TileColor" content="#ffffff">
-      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-      <meta name="theme-color" content="#ffffff">    
+    <link rel="apple-touch-icon" sizes="60x60" href="/Acssets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/Acssets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/Acssets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/Acssets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/Acssets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/Acssets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/Acssets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Acssets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/Acssets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Acssets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/Acssets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Acssets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/Acssets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">    
     <title>Login</title>
     <link rel="stylesheet" href="/Css/App.css"> 
-  </head>
-  <body>
+</head>
+<body>
     <div class="register_container">
-      <div class="register__form">
-        <div class="register__form--left">
-          <div class="register__form--logo">
-              <a href="/"><img src="/Acssets/Icon/Logo2.svg" alt="Logo"></a>
-          </div>
-          <div class="register__form--content">
-            <h1>Đăng nhập</h1>
-            <p>Đăng nhập để sử dụng dịch vụ của chúng tôi</p>
-            <form id="LoginForm">
-              <div class="register__form--input">
-                
-                  <input type="text" id="PhoneOrEmail" name="Phone" required placeholder="Số điện thoại hoặc Email" class="input_password">
-                <br>
-                  <input type="password" id="inputPassword "name="input_password" required placeholder="Nhập mật khẩu" class="input_password">
-              </div>
-              <div class="login__form--remember">
-                <div>
-                  <input type="checkbox" name="remember" id="remember">
-                  <label for="remember" class="remember-desc">Ghi nhớ mật khẩu</label>
+        <div class="register__form">
+            <div class="register__form--left">
+                <div class="register__form--logo">
+                    <a href="/"><img src="/Acssets/Icon/Logo2.svg" alt="Logo"></a>
                 </div>
-                <p>Quên mật khẩu</p>
-              </div>
-              <div class="register__form--submit">
-                <button type="submit" class="submit">Đăng nhập</button>
-              </div>
-            </form>
-            <div class="register__form--footer">
-              <p>Bạn chưa có tài khoản? <a href="/auth/register">Đăng ký</a></p>
+                <div class="register__form--content">
+                    <h1>Đăng nhập</h1>
+                    <p>Đăng nhập để sử dụng dịch vụ của chúng tôi</p>
+                    <form id="LoginForm">
+                        <div class="register__form--input">
+                            <input type="text" id="PhoneOrEmail" name="PhoneOrEmail" required placeholder="Số điện thoại hoặc Email" class="input_password">
+                            <br>
+                            <input type="password" id="inputPassword" name="input_password" required placeholder="Nhập mật khẩu" class="input_password">
+                        </div>
+                        <div class="login__form--remember">
+                            <div>
+                                <input type="checkbox" name="remember" id="remember">
+                                <label for="remember" class="remember-desc">Ghi nhớ mật khẩu</label>
+                            </div>
+                            <p>Quên mật khẩu</p>
+                        </div>
+                        <div class="register__form--submit">
+                            <button type="submit" class="submit">Đăng nhập</button>
+                        </div>
+                    </form>
+                    <div class="register__form--footer">
+                        <p>Bạn chưa có tài khoản? <a href="/auth/register">Đăng ký</a></p>
+                    </div>
+                    <p class="desc login--other">Hoặc đăng nhập bằng</p>
+                    <div class="social">
+                        <a href="#" class="social__item">
+                            <img src="/Acssets/Icon/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social__item">
+                            <img src="/Acssets/Icon/gg.svg" alt="Google">
+                        </a>
+                        <a href="#" class="social__item">
+                            <img src="/Acssets/Icon/apple.svg" alt="Apple">
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="desc login--other">Hoặc đăng nhập bằng</p>
-            <div class="social">
-              <a href="#" class="social__item">
-                <img src="/Acssets/Icon/facebook.svg" alt="Facebook">
-              </a>
-              <a href="#" class="social__item">
-                <img src="/Acssets/Icon/gg.svg" alt="Google">
-              </a>
-              <a href="#" class="social__item">
-                <img src="/Acssets/Icon/apple.svg" alt="Apple">
-              </a>
+            <div class="register__form--right">
+                <img src="/Acssets/image/image_auth.png" alt="Shopping at home">
             </div>
-          </div>
         </div>
-        <div class="register__form--right">
-          <img src="/Acssets/image/image_auth.png" alt="Shopping at home">
-        </div>
-      </div>
     </div>
-    <script src="/Js/register.js"></script>
-  </body>
-  
+    <div class="loader" style="display: none;">Loading...</div>
+    <script src="/Js/login.js"></script>
+</body>
+</html>

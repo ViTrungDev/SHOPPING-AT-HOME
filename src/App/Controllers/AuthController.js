@@ -36,12 +36,13 @@ class AuthController {
         return res.status(400).json({ message: "Email này đã được đăng ký" });
       }
 
-      // Tạo username mới nếu bị trùng
-      let newUsername = username;
+      // Tạo username mới với số ngẫu nhiên
+      let newUsername = username + generateRandomNumber();
       while (await User.findOne({ username: newUsername })) {
-        // Tạo số ngẫu nhiên từ 1000 đến 9999
-        const randomNumber = crypto.randomInt(1000, 9999);
-        newUsername = `${username}${randomNumber}`;
+        newUsername = username + generateRandomNumber();
+      }
+      function generateRandomNumber() {
+        return Math.floor(Math.random() * 9000) + 1000;
       }
 
       // hash password
@@ -72,6 +73,7 @@ class AuthController {
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }
   }
+
   /* =====================================login==================================*/
   async login(req, res) {
     try {
@@ -92,33 +94,40 @@ class AuthController {
         $or: [{ phone: phone }, { email: email }],
       });
       if (!user) {
+        logger.warn("User not found");
         return res.status(404).json({ message: "User not found" });
       }
       // check password
       const checkPassword = await bcrypt.compare(password, user.password);
       if (!checkPassword) {
+        logger.warn("Password is incorrect");
         return res.status(400).json({ message: "Password is incorrect" });
       }
-      console.log("ACCESS_TOKEN_SECRET:", process.env.TOKEN_SECRET);
       // create access token
       const accessToken = jwt.sign(
         { userId: user._id, admin: user.isAdmin },
         process.env.TOKEN_SECRET,
         { expiresIn: "60s" }
       );
-      console.log(accessToken);
 
+      // Set cookie with the token
       res.cookie("token", accessToken, {
         httpOnly: true,
         secure: true,
         sameSite: "none",
       });
+
+      // Return the token in the response
       res.status(200).json({
         message: "Đăng nhập thành công!",
         accessToken,
       });
+
+      // Log email and username on successful login
+      logger.info(
+        `Login successful for user: ${user.email}, username: ${user.username}`
+      );
     } catch (error) {
-      console.error("Lỗi chi tiết:", error.stack);
       logger.error("Error login", error.message);
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }

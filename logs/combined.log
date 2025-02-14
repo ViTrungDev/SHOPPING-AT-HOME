@@ -46,3 +46,10 @@
 2025-02-12 17:28:30 error: Error login
 2025-02-12 17:29:19 error: Error login
 2025-02-12 17:35:25 error: Error login
+2025-02-12 17:56:52 info: Start hashing password for MinhDao@gmail.com
+2025-02-12 17:56:52 info: User MinhDao@gmail.com has been created with username Minh2509
+2025-02-14 10:45:49 info: ACCESS_TOKEN_SECRET:
+2025-02-14 10:45:49 info: Access token created:
+2025-02-14 10:45:49 info: Token set in cookie
+2025-02-14 10:45:49 info: Login successful, response sent
+2025-02-14 10:49:15 info: Login successful for user: MinhDao@gmail.com, username: Minh2509
