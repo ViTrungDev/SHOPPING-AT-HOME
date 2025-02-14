@@ -4,6 +4,8 @@ const path = require("path");
 const logger = require("../../Util/logger");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
+const sendMail = require("../../helper/sendMail");
+const fs = require("fs").promises;
 
 class AuthController {
   // display register page
@@ -64,12 +66,23 @@ class AuthController {
         `User ${email} has been created with username ${newUsername}`
       );
 
+      // Read the HTML file content
+      const emailHtml = await fs.readFile(
+        path.join(__dirname, "../../Resources/Views/Emails/sendEmail.html"),
+        "utf-8"
+      );
+
       res.status(201).json({
         message: "Đăng ký thành công!",
         user: savedUser,
       });
+      await sendMail({
+        email: email,
+        subject: "Bạn đã đăng ký thành công tài khoản tại Shopping at home",
+        html: emailHtml, // Use the content of sendEmail.html
+      });
     } catch (error) {
-      logger.error("Error register", error.message);
+      logger.error("Error registering user", error.message);
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }
   }
