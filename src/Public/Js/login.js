@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const emailOrPhoneValue = getEmailOrPhone.value;
       const passwordValue = getPassword.value;
 
-      console.log(emailOrPhoneValue, passwordValue);
+      console.log("Email or Phone:", emailOrPhoneValue);
+      console.log("Password:", passwordValue);
 
       // Kiểm tra xem giá trị nhập vào là email hay số điện thoại
       const isEmail = emailOrPhoneValue.includes("@");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       try {
+        console.log("Sending login request with formData:", formData);
         const response = await fetch("/auth/login", {
           method: "POST",
           headers: {
@@ -39,16 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         const result = await response.json();
         if (response.ok) {
-          // Lưu token vào localStorage
+          // Lưu token và thông tin người dùng vào localStorage
           localStorage.setItem("accessToken", result.accessToken);
+          localStorage.setItem("username", result.username);
+          localStorage.setItem("email", result.email);
+          console.log(
+            "Login successful, token and user info saved to localStorage"
+          );
           // Chuyển hướng người dùng đến trang chủ
           window.location.href = "/";
-          logger.info();
         } else {
-          console.log("Lỗi đăng nhập", result);
+          console.log("Login error:", result);
         }
       } catch (error) {
-        console.log("Lỗi đăng nhập", error);
+        console.log("Login request failed:", error);
       } finally {
         if (loader) {
           loader.classList.remove("active");
@@ -56,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       console.log("formData:", formData);
     } else {
-      console.error("Một hoặc nhiều phần tử không thể tìm thấy.");
+      console.error("One or more elements not found.");
     }
   });
 });

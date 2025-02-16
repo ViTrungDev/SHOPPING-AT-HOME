@@ -134,6 +134,8 @@ class AuthController {
       res.status(200).json({
         message: "Đăng nhập thành công!",
         accessToken,
+        username: user.username,
+        email: email,
       });
 
       // Log email and username on successful login
