@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 const handlebars = require("express-handlebars");
 const router = require("./Router");
+const cookies = require("cookie-parser");
 const db = require("./App/Model/db/Connect");
 
 console.log("TOKEN_SECRET:", process.env.TOKEN_SECRET); // Debug
@@ -28,7 +29,7 @@ app.engine(
 );
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "Resources/Views"));
-
+app.use(cookies());
 router(app);
 db.connect();
 app.listen(port, () => {

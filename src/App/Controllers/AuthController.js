@@ -62,9 +62,7 @@ class AuthController {
 
       // save user into database
       const savedUser = await newUser.save();
-      logger.info(
-        `User ${email} has been created with username ${newUsername}`
-      );
+      logger.info(`User ${email} has been created with usernamenewUsername}`);
 
       // Read the HTML file content
       const emailHtml = await fs.readFile(
@@ -82,7 +80,7 @@ class AuthController {
         html: emailHtml, // Use the content of sendEmail.html
       });
     } catch (error) {
-      logger.error("Error registering user", error.message);
+      logger.error("Error register", error.message);
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }
   }
@@ -120,7 +118,7 @@ class AuthController {
       const accessToken = jwt.sign(
         { userId: user._id, admin: user.isAdmin },
         process.env.TOKEN_SECRET,
-        { expiresIn: "60s" }
+        { expiresIn: "1h" }
       );
 
       // Set cookie with the token
@@ -135,7 +133,8 @@ class AuthController {
         message: "Đăng nhập thành công!",
         accessToken,
         username: user.username,
-        email: email,
+        email: user.email,
+        isAdmin: user.isAdmin,
       });
 
       // Log email and username on successful login

@@ -1,34 +1,45 @@
 const jwt = require("jsonwebtoken");
-
-const checkAdmin = {
+module.exports = {
   authenticateToken: (req, res, next) => {
-    const token = req.headers.token;
-    if (token) {
-      const accessToken = token.split(" ")[1];
-      jwt.verify(accessToken, process.env.TOKEN_SECRET, (err, user) => {
-        if (err) {
-          return res.status(403).json("Token is not valid!!!");
-        }
-        console.log("Decoded user from token:", user);
-        req.user = user;
-        next();
-      });
-    } else {
-      return res.status(401).json("You are not authenticated!");
-    }
-  },
-  verifyTokenAuthAdminAuth: (req, res, next) => {
-    const userId = req.user._id;
-    const isAdmin = req.user.isAdmin;
-    const paramId = req.params.id; // Assuming paramId is obtained from request parameters
+    console.log("📌 Headers nhận được:", req.headers);
+    console.log("📌 Cookies nhận được:", req.cookies);
 
-    console.log("User id:", userId, "paramId:", paramId, "isAdmin:", isAdmin);
-    if (String(userId) === String(paramId) || isAdmin) {
-      next();
-    } else {
-      return res.status(403).json("You are not allowed to access!");
+    let token = req.headers.authorization?.split(" ")[1]; // Lấy token từ Headers
+
+    if (!token && req.cookies?.token) {
+      token = req.cookies.token; // Lấy token từ Cookies nếu có
     }
+
+    if (!token) {
+      console.log("❌ Không tìm thấy token!");
+      return res.status(401).json({ message: "Bạn chưa đăng nhập!" });
+    }
+
+    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+      if (err) {
+        console.error("❌ Token không hợp lệ:", err.message);
+        return res
+          .status(403)
+          .json({ message: "Token không hợp lệ hoặc đã hết hạn!" });
+      }
+      console.log("✅ Token hợp lệ, user:", user);
+      req.user = user;
+      next();
+    });
+  },
+
+  checkAdmin: (req, res, next) => {
+    console.log("📌 Kiểm tra quyền admin, user:", req.user);
+
+    // 🛠 **Sửa lỗi kiểm tra sai key**
+    if (!req.user || req.user.admin !== true) {
+      console.log(
+        `❌ Người dùng không phải là admin! (admin = ${req.user.admin})`
+      );
+      return res.status(403).json({ message: "Bạn không có quyền truy cập!" });
+    }
+
+    console.log("✅ Người dùng là admin!");
+    next();
   },
 };
-
-module.exports = checkAdmin;

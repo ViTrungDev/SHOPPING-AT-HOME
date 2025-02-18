@@ -62,7 +62,45 @@
         const username = localStorage.getItem("username");
 
         if (username) {
-            authLinks.innerHTML = `<p>Xin chào, ${username}</p>`;
+            authLinks.innerHTML = `
+                <div class="profile-container">
+                    <p class="welcome-message">Xin chào, 
+                        <span class="profile">${username}</span>
+                    </p>
+                    <div class="profile--hover">
+                        <ul class="profile__item">
+                            <li><a href="#" id="profileAccess">Tài khoản của tôi</a></li>
+                            <li>Đơn mua</li>
+                            <li id="logout">Đăng xuất</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            // Thêm sự kiện cho liên kết "Tài khoản của tôi"
+            document.getElementById("profileAccess").addEventListener("click", function(event) {
+                event.preventDefault();
+                fetch("/Js/profileAccess.js")
+                .then(response => response.text())
+                .then(script => {
+                    eval(script);
+                })
+                .catch(error => {
+                    console.error("Error loading profileAccess.js:", error);
+                });
+            });
+
+            // Thêm sự kiện đăng xuất
+            document.getElementById("logout").addEventListener("click", function() {
+                // Xóa thông tin người dùng khỏi localStorage
+                localStorage.removeItem("accessToken");
+                localStorage.removeItem("username");
+                localStorage.removeItem("email");
+                localStorage.removeItem("isAdmin");
+
+                // Chuyển hướng đến trang đăng nhập
+                window.location.href = "/auth/login";
+            });
         }
     });
 </script>

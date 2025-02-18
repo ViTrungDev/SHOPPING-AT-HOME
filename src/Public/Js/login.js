@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loader = document.querySelector(".loader");
-
   const form = document.getElementById("LoginForm");
   if (!form) return;
 
@@ -8,9 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     console.log("Submit login form!");
 
-    if (loader) {
-      loader.classList.add("active");
-    }
+    if (loader) loader.classList.add("active");
 
     const getEmailOrPhone = document.getElementById("PhoneOrEmail");
     const getPassword = document.getElementById("inputPassword");
@@ -19,10 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const emailOrPhoneValue = getEmailOrPhone.value;
       const passwordValue = getPassword.value;
 
-      console.log("Email or Phone:", emailOrPhoneValue);
-      console.log("Password:", passwordValue);
-
-      // Kiểm tra xem giá trị nhập vào là email hay số điện thoại
       const isEmail = emailOrPhoneValue.includes("@");
       const formData = {
         email: isEmail ? emailOrPhoneValue : "",
@@ -31,38 +24,48 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       try {
-        console.log("Sending login request with formData:", formData);
+        console.log("🔹 Gửi request đăng nhập với:", formData);
         const response = await fetch("/auth/login", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
+
         const result = await response.json();
         if (response.ok) {
-          // Lưu token và thông tin người dùng vào localStorage
+          // Lưu token vào localStorage
           localStorage.setItem("accessToken", result.accessToken);
           localStorage.setItem("username", result.username);
           localStorage.setItem("email", result.email);
-          console.log(
-            "Login successful, token and user info saved to localStorage"
-          );
-          // Chuyển hướng người dùng đến trang chủ
-          window.location.href = "/";
+          localStorage.setItem("isAdmin", result.isAdmin);
+
+          console.log("✅ Đăng nhập thành công, token đã lưu!");
+
+          // Chuyển hướng
+          window.location.href = result.isAdmin ? "/Auth/admin" : "/";
         } else {
-          console.log("Login error:", result);
+          console.log("❌ Lỗi đăng nhập:", result);
         }
       } catch (error) {
-        console.log("Login request failed:", error);
+        console.log("❌ Lỗi request:", error);
       } finally {
-        if (loader) {
-          loader.classList.remove("active");
-        }
+        if (loader) loader.classList.remove("active");
       }
-      console.log("formData:", formData);
     } else {
-      console.error("One or more elements not found.");
+      console.error("❌ Không tìm thấy input!");
     }
   });
 });
+
+// Gửi request có token
+async function fetchWithToken(url, method = "GET", body = null) {
+  const token = localStorage.getItem("accessToken");
+  const headers = { "Content-Type": "application/json" };
+  if (token) headers["Authorization"] = `Bearer ${token}`;
+
+  const options = { method, headers };
+  if (body) options.body = JSON.stringify(body);
+
+  const response = await fetch(url, options);
+  return response.json();
+}

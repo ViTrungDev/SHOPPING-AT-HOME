@@ -650,3 +650,35 @@ margin-bottom: 19px;
   margin-top: -21px;
   margin-right: 15px;
 }
+/*====================== profile =====================*/
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-container:hover .profile--hover {
+  display: block;
+}
+
+.profile--hover {
+  display: none;
+  position: absolute;
+  background: #fff;
+  z-index: 1;
+  justify-content: center;
+  top: 20px;
+  width: 180px;
+  transform: translateX(-1px);
+}
+
+.profile__item {
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid transparent;
+  padding-left: 20px;
+  font-size:var(--font-primary)
+}
+.profile__item>li:hover{
+  font-size: var(--font-primary);
+  color:#9ECE17;
+}
