@@ -13,6 +13,9 @@ body{
     font-family: "Inter", sans-serif;
     background: #D9D9D9 !important  ;
 }
+p{
+  margin-bottom: 5px;
+}
 /* ===================================== common all =========================== */
 .main-content {
     width: 1440px;
@@ -46,7 +49,6 @@ a {
 /*============================== 404 =========================*/
 .container{
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content:center;
   align-items:center;
@@ -193,6 +195,7 @@ span>a{
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 22px;
 }
 .category{
   margin-left: 19px;
@@ -255,6 +258,18 @@ font-weight: 500;
   transform: scale(1.1);
   background-color: lightcoral;
 }
+.nav__category {
+  margin-right: 34px;
+}
+.category-item {
+  width: 240px;
+  height: 44px;
+  flex-shrink: 0;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 4px 0px;
+  background: rgb(255, 255, 255);
+  margin: 10px 0px 10px 16px;
+  transition: transform 0.3s, background-color 0.3s;
+}
 /*=============================== Slider =======================*/
 .ShowSlider {
   display: none;
@@ -307,14 +322,24 @@ font-weight: 500;
   width: 231px;
   height: 80px;
   background: #FFF;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.50);
-  margin: 10px 0px 10px 16px;
   transition: transform 0.3s, background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fruit_price{
+  color: #78A206;
+  font-size: var(--font-primary);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 3px;
+  margin-top: 17px;
 }
 .Selling-item>img{
   margin: 6px 12px;
-  width: 32px;
-  height: 32px;
+  width: 72px;
+  height: 72px;
   flex-shrink: 0;
 }
 .Selling-item>span{
@@ -651,34 +676,164 @@ margin-bottom: 19px;
   margin-right: 15px;
 }
 /*====================== profile =====================*/
-.profile-container {
-  position: relative;
-  display: inline-block;
+/* Đảm bảo reset CSS để tránh margin/padding mặc định */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.profile-container:hover .profile--hover {
-  display: block;
+/* Định nghĩa container chính */
+.container {
+  width: 100vw; /* Chiều rộng full màn hình */
+  max-width: 100%; /* Không vượt quá kích thước màn */
+  padding: 16px; /* Cách lề trái phải 16px */
 }
 
-.profile--hover {
-  display: none;
-  position: absolute;
-  background: #fff;
-  z-index: 1;
-  justify-content: center;
-  top: 20px;
-  width: 180px;
-  transform: translateX(-1px);
+/* Dùng flexbox để chia layout */
+.grid {
+  display: flex;
+  gap: 16px; /* Khoảng cách giữa hai cột */
 }
 
-.profile__item {
-  justify-content: center;
-  padding: 10px;
-  border: 1px solid transparent;
-  padding-left: 20px;
-  font-size:var(--font-primary)
+/* Cột trái có kích thước linh hoạt */
+.card--left {
+  flex: 1;
+  min-width: 250px; /* Giới hạn nhỏ nhất */
 }
-.profile__item>li:hover{
-  font-size: var(--font-primary);
-  color:#9ECE17;
+
+/* Cột phải chiếm phần còn lại */
+.card--right {
+  flex: 3; /* Lớn hơn cột trái */
+}
+
+/* Định dạng card */
+.card {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề */
+.card__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Các mục trong danh sách "On Sale" */
+.card__item {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.card__item img {
+  width: 100px;
+  height: 100px;
+  margin-right: 16px;
+}
+
+.card__item p {
+  margin: 0;
+}
+
+/* Giá */
+.card__item-price {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.card__item-old-price {
+  color: #6b7280;
+  text-decoration: line-through;
+}
+
+/* Best Deals */
+.best-deals__tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.best-deals__tag {
+  background-color: #10b981;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Grid sản phẩm */
+.best-deals__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .best-deals__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .best-deals__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.best-deals__item {
+  text-align: center;
+}
+
+.best-deals__item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+/*==========================weekly-vendor======================*/
+.section {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.vendor-container {
+  display: flex;
+  gap: 16px;
+  overflow: auto;
+}
+.vendor-card {
+  flex: 1;
+  background: #eaeaea;
+  padding: 16px;
+  border-radius: 8px;
+  min-width: 280px;
+}
+.vendor-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.product-list {
+  display: flex;
+  gap: 8px;
+}
+.product-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+}
+.banner-container {
+  display: flex;
+  gap: 16px;
+}
+.banner {
+  flex: 1;
+  background: #ddd;
+  padding: 24px;
+  text-align: center;
+  border-radius: 8px;
 }
