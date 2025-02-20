@@ -795,45 +795,107 @@ margin-bottom: 19px;
   margin-bottom: 8px;
 }
 /*==========================weekly-vendor======================*/
-.section {
-  background: white;
-  padding: 16px;
-  border-radius: 8px;
-  margin-bottom: 16px;
-}
-.vendor-container {
+.container--vendor {
   display: flex;
-  gap: 16px;
-  overflow: auto;
+  gap: 20px;
+  width: 1450x;
+  margin:0px 16px 16px 16px;
 }
-.vendor-card {
+.banner--vendor img {
+  width: 300px;
+  border-radius: 8px;
+}
+.vendor-right {
   flex: 1;
-  background: #eaeaea;
-  padding: 16px;
+  background: white;
+  padding: 20px;
   border-radius: 8px;
-  min-width: 280px;
 }
-.vendor-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-.product-list {
+.vendor-list {
   display: flex;
-  gap: 8px;
+  gap: 65px;
+  flex-wrap: wrap;
 }
-.product-list img {
+.vendor-item {
+  background: #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  width: 332px;
+  height: 200px;
+}
+.vendor-logo img {
+  width: 70px;
+  position: relative;
+  height: 70px;
+  top: -30px;
+  left: -117px;
+}
+.products img {
   width: 50px;
   height: 50px;
-  border-radius: 4px;
+  margin: -27px 0px 0px 4px;
+  border-radius: 5px;
 }
-.banner-container {
+.vendor-right>h2::after{
+  content: "";
+  display: inline-block;
+  width: 1111px;
+  height: 2px;
+  background-color: #000;
+  margin-left: 16px;
+  position: relative;
+  top: -18px;
+  left: -17px;
+}
+.vendor-item > h3 , .vendor-item > p {
+  width: 144px;
+  position: relative;
+  top: -69px;
+  left: 50px;
+}
+.vendor-item > h3{
+  color: #000;
+  font-size: var(--font-big);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.vendor-item > p{
+  color: #666;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+/*=========================  product-list  =====================*/
+.product-list{
   display: flex;
-  gap: 16px;
-}
-.banner {
-  flex: 1;
-  background: #ddd;
-  padding: 24px;
-  text-align: center;
+  width: 1487px;
+  height: 426px;
+  flex-shrink: 0;
+  background: #FFF;
   border-radius: 8px;
+  margin: 0px 16px 16px 16px;
+  gap:67px;
+}
+.product{
+  width: 212px;
+  height: 365.472px;
+  margin-top: 32px;
+}
+.product:first-child {
+  margin-left: 77px;
+}
+.product__desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Thêm dấu "..." khi vượt quá số dòng */
+  width: 206px;
+  height: 41px;
+  font-size: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.4; /* Điều chỉnh khoảng cách dòng */
 }
