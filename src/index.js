@@ -6,7 +6,6 @@ const handlebars = require("express-handlebars");
 const router = require("./Router");
 const cookies = require("cookie-parser");
 const db = require("./App/Model/db/Connect");
-
 console.log("TOKEN_SECRET:", process.env.TOKEN_SECRET); // Debug
 
 const app = express();
