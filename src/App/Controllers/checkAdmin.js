@@ -14,7 +14,7 @@ module.exports = {
       console.log("❌ Không tìm thấy token!");
       return res.status(401).json({ message: "Bạn chưa đăng nhập!" });
     }
-
+    // verify token
     jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
       if (err) {
         console.error("❌ Token không hợp lệ:", err.message);

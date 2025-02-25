@@ -18,6 +18,12 @@ class AuthController {
   ViewLogin(req, res) {
     res.sendFile(path.join(__dirname, "../../Resources/Views/Auth/login.html"));
   }
+  // display forgot password page
+  ViewForgot(req, res) {
+    res.sendFile(
+      path.join(__dirname, "../../Resources/Views/Auth/forgot.html")
+    );
+  }
   // create user
   async register(req, res) {
     try {
@@ -146,6 +152,7 @@ class AuthController {
       res.status(500).json({ message: "Lỗi server", error: error.message });
     }
   }
+  /*==================================== forgot password ================================ */
 }
 
 module.exports = new AuthController();

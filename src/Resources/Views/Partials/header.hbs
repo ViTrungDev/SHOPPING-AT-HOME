@@ -65,11 +65,11 @@
             authLinks.innerHTML = `
                 <div class="profile-container">
                     <p class="welcome-message">Xin chào, 
-                        <span class="profile">${username}</span>
+                        <span class="profile" id="usernameClick">${username}</span>
                     </p>
                     <div class="profile--hover">
                         <ul class="profile__item">
-                            <li><a href="#" id="profileAccess">Tài khoản của tôi</a></li>
+                            <li><a href="/auth/profile" id="profileAccess">Tài khoản của tôi</a></li>
                             <li>Đơn mua</li>
                             <li id="logout">Đăng xuất</li>
                         </ul>
@@ -78,20 +78,21 @@
             `;
 
             // Thêm sự kiện cho liên kết "Tài khoản của tôi"
-            document.getElementById("profileAccess").addEventListener("click", function(event) {
+            document.getElementById("profileAccess").addEventListener("click", function (event) {
                 event.preventDefault();
                 fetch("/Js/profileAccess.js")
-                .then(response => response.text())
-                .then(script => {
-                    eval(script);
-                })
-                .catch(error => {
-                    console.error("Error loading profileAccess.js:", error);
-                });
+                    .then(response => response.text())
+                    .then(script => {
+                        eval(script);
+                        window.location.href = "/auth/profile";
+                    })
+                    .catch(error => {
+                        console.error("Error loading profileAccess.js:", error);
+                    });
             });
 
             // Thêm sự kiện đăng xuất
-            document.getElementById("logout").addEventListener("click", function() {
+            document.getElementById("logout").addEventListener("click", function () {
                 // Xóa thông tin người dùng khỏi localStorage
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("username");
@@ -100,6 +101,23 @@
 
                 // Chuyển hướng đến trang đăng nhập
                 window.location.href = "/auth/login";
+            });
+
+            // Xử lý hover và click để mở menu
+            const profileContainer = document.querySelector(".profile-container");
+            const usernameClick = document.getElementById("usernameClick");
+
+            // Khi click vào username, toggle hiển thị menu
+            usernameClick.addEventListener("click", function (event) {
+                event.stopPropagation(); // Ngăn chặn sự kiện lan ra ngoài
+                profileContainer.classList.toggle("active");
+            });
+
+            // Khi click ra ngoài thì đóng menu
+            document.addEventListener("click", function (event) {
+                if (!profileContainer.contains(event.target)) {
+                    profileContainer.classList.remove("active");
+                }
             });
         }
     });

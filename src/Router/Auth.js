@@ -14,6 +14,9 @@ router.get("/register", authController.ViewRegister);
 router.get("/login", authController.ViewLogin);
 router.post("/login", authController.login);
 
+// forgot password
+router.get("/forgot", authController.ViewForgot);
+
 // Profile cá nhân (Chỉ user đã đăng nhập mới truy cập được)
 router.get("/profile", checkAdmin.authenticateToken, profile.index);
 
