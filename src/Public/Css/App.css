@@ -1275,6 +1275,9 @@ input:focus {
 }
 
 .submit--forget {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 407px;
   height: 36px;
   flex-shrink: 0;
@@ -1318,6 +1321,23 @@ input:focus {
   background-color: #000;
   margin: -2px 10px;
   position: relative;
+}
+
+/*========================================= forgotOTP ===================================*/
+.forgot__form--input--otp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 50px;
+}
+
+.singleDigitInput {
+  width: 47px;
+}
+
+.comfirm--otp {
+  padding: 20px 25px;
 }
 
 /*# sourceMappingURL=App.css.map */

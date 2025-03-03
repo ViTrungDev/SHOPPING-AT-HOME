@@ -6,19 +6,19 @@
             <div class="forgot__form--left">
                 <div class="forgot__form--back">
                     <span style="font-size: 30px; margin-right: 5px;">&lt;</span>
-                    <a href="/auth/login"> Trở về trang đăng nhập</a>
+                    <a href="/auth/login" style="font-weight: 600;"> Trở về trang đăng nhập</a>
                 </div>
                 <div class="forgot__form--content">
                     <h1>Quên mật khẩu</h1>
-                    <p>Nhận mật khẩu mới qua số điện thoại hoặc email</p>
+                    <p>Mật khẩu mới sẽ được gửi qua email của bạn </p>
                     <form id="forgotForm">
                         <div class="forgot__form--input">
-                            <input type="text" id="PhoneOrEmail" name="PhoneOrEmail" required placeholder="Số điện thoại hoặc Email" class="forgot__form--input--phone">
+                            <input type="text" id="PhoneOrEmail" name="PhoneOrEmail" placeholder="Nhập Email để nhận lại mật khẩu" class="forgot__form--input--phone">
                             <br>
                         </div>
                         
                         <div class="forgot__form--submit">
-                            <button type="submit" class="submit--forget">Gửi</button>
+                            <button type="submit" id="forgot" class="submit--forget">Gửi</button>
                         </div>
                     </form>
                     <p class="desc login--other">Hoặc đăng nhập bằng</p>
@@ -43,4 +43,5 @@
     <div class="loader" style="display: none;">Loading...</div>
     <script src="/Js/login.js"></script>
     <script src="/Js/favicon.js"></script>
+    <script src="/Js/forgotPassword.js"></script>
 </body>

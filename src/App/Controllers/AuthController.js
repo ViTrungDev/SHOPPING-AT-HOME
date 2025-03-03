@@ -18,12 +18,6 @@ class AuthController {
   ViewLogin(req, res) {
     res.sendFile(path.join(__dirname, "../../Resources/Views/Auth/login.html"));
   }
-  // display forgot password page
-  ViewForgot(req, res) {
-    res.sendFile(
-      path.join(__dirname, "../../Resources/Views/Auth/forgot.html")
-    );
-  }
   // create user
   async register(req, res) {
     try {
@@ -153,6 +147,15 @@ class AuthController {
     }
   }
   /*==================================== forgot password ================================ */
+  forgot(req, res) {
+    try {
+      const { email, phone } = req.body;
+      if (!email && !phone) {
+        logger.warn("Not has email or phone");
+        return res.status(400).json({ message: "Please enter email or phone" });
+      }
+    } catch (error) {}
+  }
 }
 
 module.exports = new AuthController();

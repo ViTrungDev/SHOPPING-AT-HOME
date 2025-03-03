@@ -90,3 +90,11 @@
 2025-02-25 14:48:36 info: Start hashing password for son01688870603@gmail.com
 2025-02-25 14:48:36 info: User son01688870603@gmail.com has been created with usernamenewUsername}
 2025-02-25 14:49:28 info: Login successful for user: son01688870603@gmail.com, username: Son8030
+2025-03-02 21:14:17 info: Start hashing password for vitrung2004@gmail.com
+2025-03-02 21:14:17 info: User vitrung2004@gmail.com has been created with usernamenewUsername}
+2025-03-02 21:14:44 info: Login successful for user: vitrung2004@gmail.com, username: Trung7995
+2025-03-02 21:17:08 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-02 21:21:52 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-02 21:21:52 error: Lỗi gửi OTP: ResetPass validation failed: expiresAt: Path `expiresAt` is required.
+2025-03-02 21:26:02 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-02 21:26:06 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
