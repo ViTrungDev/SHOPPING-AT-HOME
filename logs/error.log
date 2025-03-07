@@ -19,3 +19,6 @@
 2025-02-12 17:29:19 error: Error login
 2025-02-12 17:35:25 error: Error login
 2025-03-02 21:21:52 error: Lỗi gửi OTP: ResetPass validation failed: expiresAt: Path `expiresAt` is required.
+2025-03-03 23:32:47 error: Error register
+2025-03-04 00:24:37 error: Lỗi gửi OTP: loger.error is not a function
+2025-03-04 00:26:52 error: Lỗi gửi OTP: logger.error is not a function

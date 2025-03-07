@@ -98,3 +98,35 @@
 2025-03-02 21:21:52 error: Lỗi gửi OTP: ResetPass validation failed: expiresAt: Path `expiresAt` is required.
 2025-03-02 21:26:02 info: Gửi mã OTP đến email vitrung2004@gmail.com
 2025-03-02 21:26:06 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-03 07:55:40 info: Start hashing password for vuthitham88999@gmail.com
+2025-03-03 07:55:40 info: User vuthitham88999@gmail.com has been created with usernamenewUsername}
+2025-03-03 07:56:51 info: Gửi mã OTP đến email vuthitham88999@gmail.com
+2025-03-03 07:56:54 info: Đã gửi mã OTP đến email vuthitham88999@gmail.com
+2025-03-03 07:57:18 info: Login successful for user: vuthitham88999@gmail.com, username: Thắm8478
+2025-03-03 07:59:04 info: Login successful for user: vitrung2004@gmail.com, username: Trung7995
+2025-03-03 08:52:25 info: Gửi mã OTP đến email vuthitham88999@gmail.com
+2025-03-03 08:52:28 info: Đã gửi mã OTP đến email vuthitham88999@gmail.com
+2025-03-03 08:56:20 info: Login successful for user: MinhDao@gmail.com, username: Minh2509
+2025-03-03 08:56:33 info: Login successful for user: trungk12@imail.edu.vn, username: Trung5601
+2025-03-03 08:56:46 info: Login successful for user: MinhDao@gmail.com, username: Minh2509
+2025-03-03 23:12:41 info: Start hashing password for chamanh.250904@gmail.com
+2025-03-03 23:12:42 info: User chamanh.250904@gmail.com has been created with usernamenewUsername}
+2025-03-03 23:13:12 info: Login successful for user: chamanh.250904@gmail.com, username: Châm Anh6783
+2025-03-03 23:15:14 info: Login successful for user: chamanh.250904@gmail.com, username: Châm Anh6783
+2025-03-03 23:16:07 info: Login successful for user: MinhDao@gmail.com, username: Minh2509
+2025-03-03 23:32:39 info: Start hashing password for vitrung06022004@gmail.com
+2025-03-03 23:32:39 info: User vitrung06022004@gmail.com has been created with usernamenewUsername}
+2025-03-03 23:32:47 error: Error register
+2025-03-03 23:35:02 info: Login successful for user: vitrung06022004@gmail.com, username: Vi9398
+2025-03-04 00:10:28 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-04 00:10:51 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-04 00:11:52 info: Gửi mã OTP đến email chamanh.250904@gmail.com
+2025-03-04 00:11:56 info: Đã gửi mã OTP đến email chamanh.250904@gmail.com
+2025-03-04 00:24:37 info: Gửi mã OTP đến email vitrung06022004@gmail.com
+2025-03-04 00:24:37 error: Lỗi gửi OTP: loger.error is not a function
+2025-03-04 00:26:52 info: Gửi mã OTP đến email vitrung06022004@gmail.com
+2025-03-04 00:26:52 error: Lỗi gửi OTP: logger.error is not a function
+2025-03-04 00:27:51 info: Gửi mã OTP đến email vitrung06022004@gmail.com
+2025-03-04 00:27:51 info: 📩 Đang gửi email đến: vitrung06022004@gmail.com
+2025-03-04 00:27:59 info: ✅ Email đã gửi thành công đến vitrung06022004@gmail.com
+2025-03-04 00:27:59 info: Đã gửi mã OTP đến email vitrung06022004@gmail.com

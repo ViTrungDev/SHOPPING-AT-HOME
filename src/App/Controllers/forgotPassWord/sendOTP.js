@@ -38,7 +38,7 @@ class SendOTP {
       await ResetPass.create({
         email,
         code: hashedOTP,
-        expiresAt: new Date(Date.now() + 60 * 1000),
+        expiresAt: new Date(Date.now() + 60 * 3000),
       });
 
       //  Đọc nội dung email từ file HTML
@@ -55,14 +55,19 @@ class SendOTP {
       emailHtml = emailHtml.replace("{{username}}", user.username);
 
       //  Gửi email
-      await sendMail({
-        email: email,
-        subject: "Mã xác nhận khôi phục mật khẩu",
-        html: emailHtml,
-      });
+      try {
+        await sendMail({
+          email: email,
+          subject: "Mã xác nhận khôi phục mật khẩu",
+          html: emailHtml,
+        });
 
-      logger.info(`Đã gửi mã OTP đến email ${email}`);
-      res.json({ message: "Mã OTP đã được gửi qua email!" });
+        logger.info(`Đã gửi mã OTP đến email ${email}`);
+        res.json({ message: "Mã OTP đã được gửi qua email!" });
+      } catch (error) {
+        logger.error(`Lỗi gửi OTP: ${error.message}`);
+        res.status(500).json({ message: "Lỗi khi gửi email" });
+      }
     } catch (error) {
       logger.error(`Lỗi gửi OTP: ${error.message}`);
       res.status(500).json({ message: "Lỗi khi gửi email" });

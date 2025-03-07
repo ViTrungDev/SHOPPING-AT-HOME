@@ -18,6 +18,7 @@ router.post("/login", authController.login);
 // forgot password
 router.get("/forgot", forgotPassWordController.ViewForgot);
 router.get("/forgotOTP", forgotPassWordController.ViewOTP);
+router.get("/forgotOTP/comfirm_password", forgotPassWordController.ComfirmOTP);
 router.post("/forgotOTP", sendOTP.sendOTP);
 router.post("/forgot", authController.forgot);
 

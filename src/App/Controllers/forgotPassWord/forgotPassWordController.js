@@ -13,5 +13,10 @@ class forgotPassWordController {
       path.join(__dirname, "../../../Resources/Views/Auth/forgotOTP.html")
     );
   }
+  ComfirmOTP(req, res) {
+    res.sendFile(
+      path.join(__dirname, "../../../Resources/Views/Auth/comfirmPassword.html")
+    );
+  }
 }
 module.exports = new forgotPassWordController();

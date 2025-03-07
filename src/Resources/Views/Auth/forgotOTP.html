@@ -25,7 +25,7 @@
                             <button type="submit" class="submit">Xác minh</button>
                         </div>
                         <p class="desc comfirm--otp">
-                            Mã xác minh có thời hạn trong <span id="timer">01:00</span>
+                            Mã xác minh có thời hạn trong <span id="timer">03:00</span>
                             <a href="http://">Gửi lại mã</a>
                         </p>
                     </form>
@@ -68,7 +68,7 @@
     }, 1000);
   }
   document.addEventListener("DOMContentLoaded", function () {
-    var fiveMinutes = 60 * 1,
+    var fiveMinutes = 60 * 3,
       display = document.querySelector("#timer");
     startTimer(fiveMinutes, display);
   });
