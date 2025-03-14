@@ -672,6 +672,7 @@ input:focus {
   border: 1px solid #3869EB;
 }
 
+/*====================== loading ========================*/
 .loader {
   position: absolute;
   top: calc(50% - 1.25em);
@@ -1349,6 +1350,50 @@ input:focus {
 
 .submit__comfirmPass {
   margin-top: 45px;
+}
+
+/*========================================== Notication ====================================*/
+/* Thông báo mặc định - nền trắng, chữ đen */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: white; /* Luôn là màu trắng */
+  color: black; /* Chữ đen */
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Thanh trượt */
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.1); /* Màu nền mờ */
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+/* Thanh tiến trình trượt từ phải sang trái */
+.progress {
+  width: 100%; /* Bắt đầu đầy */
+  height: 5px;
+  transition: width 1.5s linear; /* Thu nhỏ dần */
+}
+
+/* Màu sắc thanh trượt */
+.progress.success {
+  background: green;
+}
+
+.progress.error {
+  background: red;
 }
 
 /*# sourceMappingURL=App.css.map */

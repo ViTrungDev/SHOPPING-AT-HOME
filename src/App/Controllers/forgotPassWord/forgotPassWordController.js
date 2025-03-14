@@ -18,5 +18,10 @@ class forgotPassWordController {
       path.join(__dirname, "../../../Resources/Views/Auth/comfirmPassword.html")
     );
   }
+  ComfirmPassword(req, res) {
+    res.sendFile(
+      path.join(__dirname, "../../../Resources/Views/Auth/comfirmPassword.html")
+    );
+  }
 }
 module.exports = new forgotPassWordController();

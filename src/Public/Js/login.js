@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loader = document.querySelector(".loader");
   const form = document.getElementById("LoginForm");
+
   if (!form) return;
 
   form.addEventListener("submit", async function (event) {
@@ -12,60 +13,62 @@ document.addEventListener("DOMContentLoaded", function () {
     const getEmailOrPhone = document.getElementById("PhoneOrEmail");
     const getPassword = document.getElementById("inputPassword");
 
-    if (getEmailOrPhone && getPassword) {
-      const emailOrPhoneValue = getEmailOrPhone.value;
-      const passwordValue = getPassword.value;
+    if (!getEmailOrPhone || !getPassword) {
+      console.error("Không tìm thấy input!");
+      if (window.showNotification)
+        showNotification("Lỗi hệ thống! Không tìm thấy input.", "error");
+      return;
+    }
 
-      const isEmail = emailOrPhoneValue.includes("@");
-      const formData = {
-        email: isEmail ? emailOrPhoneValue : "",
-        phone: isEmail ? "" : emailOrPhoneValue,
-        password: passwordValue,
-      };
+    const emailOrPhoneValue = getEmailOrPhone.value.trim();
+    const passwordValue = getPassword.value.trim();
 
-      try {
-        console.log("🔹 Gửi request đăng nhập với:", formData);
-        const response = await fetch("/auth/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
+    if (!emailOrPhoneValue || !passwordValue) {
+      if (window.showNotification)
+        showNotification("Vui lòng nhập đầy đủ thông tin!", "error");
+      return;
+    }
 
-        const result = await response.json();
-        if (response.ok) {
-          // Lưu token vào localStorage
-          localStorage.setItem("accessToken", result.accessToken);
-          localStorage.setItem("username", result.username);
-          localStorage.setItem("email", result.email);
-          localStorage.setItem("isAdmin", result.isAdmin);
+    const isEmail = emailOrPhoneValue.includes("@");
+    const formData = {
+      email: isEmail ? emailOrPhoneValue : "",
+      phone: isEmail ? "" : emailOrPhoneValue,
+      password: passwordValue,
+    };
 
-          console.log("✅ Đăng nhập thành công, token đã lưu!");
+    try {
+      console.log("Gửi request đăng nhập với:", formData);
 
-          // Chuyển hướng
-          window.location.href = result.isAdmin ? "/Auth/admin" : "/";
-        } else {
-          console.log("❌ Lỗi đăng nhập:", result);
-        }
-      } catch (error) {
-        console.log("❌ Lỗi request:", error);
-      } finally {
-        if (loader) loader.classList.remove("active");
+      const response = await fetch("/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status} - ${response.statusText}`);
       }
-    } else {
-      console.error("❌ Không tìm thấy input!");
+
+      const result = await response.json();
+
+      localStorage.setItem("accessToken", result.accessToken);
+      localStorage.setItem("username", result.username);
+      localStorage.setItem("email", result.email);
+      localStorage.setItem("isAdmin", result.isAdmin);
+
+      console.log("Đăng nhập thành công!");
+      if (window.showNotification)
+        showNotification("Đăng nhập thành công!", "success");
+
+      setTimeout(() => {
+        window.location.href = result.isAdmin ? "/Auth/admin" : "/";
+      }, 1500);
+    } catch (error) {
+      console.error("Lỗi request:", error);
+      if (window.showNotification)
+        showNotification("Lỗi đăng nhập! Vui lòng thử lại.", "error");
+    } finally {
+      if (loader) loader.classList.remove("active");
     }
   });
 });
-
-// Gửi request có token
-async function fetchWithToken(url, method = "GET", body = null) {
-  const token = localStorage.getItem("accessToken");
-  const headers = { "Content-Type": "application/json" };
-  if (token) headers["Authorization"] = `Bearer ${token}`;
-
-  const options = { method, headers };
-  if (body) options.body = JSON.stringify(body);
-
-  const response = await fetch(url, options);
-  return response.json();
-}

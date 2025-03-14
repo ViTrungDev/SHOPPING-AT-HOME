@@ -130,3 +130,83 @@
 2025-03-04 00:27:51 info: 📩 Đang gửi email đến: vitrung06022004@gmail.com
 2025-03-04 00:27:59 info: ✅ Email đã gửi thành công đến vitrung06022004@gmail.com
 2025-03-04 00:27:59 info: Đã gửi mã OTP đến email vitrung06022004@gmail.com
+2025-03-08 22:53:14 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 22:53:14 info: 📩 Đang gửi email đến: vitrung2004@gmail.com
+2025-03-08 22:53:39 info: ✅ Email đã gửi thành công đến vitrung2004@gmail.com
+2025-03-08 22:53:39 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 22:55:33 info: Xác thực mật khẩu cho email undefined
+2025-03-08 22:55:33 warn: Email undefined không tồn tại
+2025-03-08 22:55:58 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 22:55:58 error: Lỗi reset mật khẩu: bcrypt is not defined
+2025-03-08 22:57:32 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 22:57:32 info: 📩 Đang gửi email đến: vitrung2004@gmail.com
+2025-03-08 22:57:36 info: ✅ Email đã gửi thành công đến vitrung2004@gmail.com
+2025-03-08 22:57:36 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 22:58:01 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 22:58:01 error: Lỗi reset mật khẩu: bcrypt is not defined
+2025-03-08 22:58:02 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 22:58:02 error: Lỗi reset mật khẩu: bcrypt is not defined
+2025-03-08 23:00:30 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:00:30 error: Lỗi reset mật khẩu: data and hash arguments required
+2025-03-08 23:00:38 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 23:00:38 info: 📩 Đang gửi email đến: vitrung2004@gmail.com
+2025-03-08 23:00:49 info: ✅ Email đã gửi thành công đến vitrung2004@gmail.com
+2025-03-08 23:00:49 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 23:01:10 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:01:10 error: Lỗi reset mật khẩu: data and hash arguments required
+2025-03-08 23:03:17 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:03:17 warn: Thiếu dữ liệu: OTP = undefined, OTP lưu = $2b$10$BInGWOFybmcjodGcF.p0t.IC6WTXtpzJFud.wyjV/IRQjcgOD4f46
+2025-03-08 23:03:24 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 23:03:24 info: 📩 Đang gửi email đến: vitrung2004@gmail.com
+2025-03-08 23:03:33 info: ✅ Email đã gửi thành công đến vitrung2004@gmail.com
+2025-03-08 23:03:33 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 23:03:50 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:03:50 warn: Thiếu dữ liệu: OTP = undefined, OTP lưu = $2b$10$VzxWid7xq4T3p1EosYCLvubreTkyMH2VHavHK21Hn3V84iuO2m7BC
+2025-03-08 23:03:51 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:03:51 warn: Thiếu dữ liệu: OTP = undefined, OTP lưu = $2b$10$VzxWid7xq4T3p1EosYCLvubreTkyMH2VHavHK21Hn3V84iuO2m7BC
+2025-03-08 23:03:51 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:03:52 warn: Thiếu dữ liệu: OTP = undefined, OTP lưu = $2b$10$VzxWid7xq4T3p1EosYCLvubreTkyMH2VHavHK21Hn3V84iuO2m7BC
+2025-03-08 23:03:52 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:03:52 warn: Thiếu dữ liệu: OTP = undefined, OTP lưu = $2b$10$VzxWid7xq4T3p1EosYCLvubreTkyMH2VHavHK21Hn3V84iuO2m7BC
+2025-03-08 23:03:52 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:03:52 warn: Thiếu dữ liệu: OTP = undefined, OTP lưu = $2b$10$VzxWid7xq4T3p1EosYCLvubreTkyMH2VHavHK21Hn3V84iuO2m7BC
+2025-03-08 23:05:00 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:05:00 warn: Thiếu dữ liệu: OTP = undefined, OTP lưu = $2b$10$VzxWid7xq4T3p1EosYCLvubreTkyMH2VHavHK21Hn3V84iuO2m7BC
+2025-03-08 23:12:13 info: Gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 23:12:13 info: 📩 Đang gửi email đến: vitrung2004@gmail.com
+2025-03-08 23:12:23 info: ✅ Email đã gửi thành công đến vitrung2004@gmail.com
+2025-03-08 23:12:23 info: Đã gửi mã OTP đến email vitrung2004@gmail.com
+2025-03-08 23:12:37 info: Xác thực mật khẩu cho email vitrung2004@gmail.com
+2025-03-08 23:12:37 info: Mật khẩu đã được thay đổi
+2025-03-08 23:13:49 info: Login successful for user: vitrung2004@gmail.com, username: Trung7995
+2025-03-14 09:42:37 warn: User not found
+2025-03-14 09:43:02 warn: User not found
+2025-03-14 09:49:56 warn: User not found
+2025-03-14 09:51:09 warn: User not found
+2025-03-14 09:53:26 warn: User not found
+2025-03-14 09:53:35 warn: User not found
+2025-03-14 09:53:41 warn: User not found
+2025-03-14 09:54:12 warn: Password is incorrect
+2025-03-14 09:54:22 info: Login successful for user: vitrung2004@gmail.com, username: Trung7995
+2025-03-14 09:57:44 warn: User not found
+2025-03-14 10:03:05 warn: User not found
+2025-03-14 10:03:30 warn: User not found
+2025-03-14 10:03:35 warn: User not found
+2025-03-14 10:03:39 warn: User not found
+2025-03-14 10:03:43 warn: User not found
+2025-03-14 10:03:49 warn: User not found
+2025-03-14 10:03:58 warn: User not found
+2025-03-14 10:04:02 info: Login successful for user: MinhDao@gmail.com, username: Minh2509
+2025-03-14 10:15:00 warn: User not found
+2025-03-14 10:15:15 info: Login successful for user: MinhDao@gmail.com, username: Minh2509
+2025-03-14 10:16:03 info: Login successful for user: MinhDao@gmail.com, username: Minh2509
+2025-03-14 10:18:29 warn: Password is incorrect
+2025-03-14 10:18:31 warn: Password is incorrect
+2025-03-14 10:18:34 warn: Password is incorrect
+2025-03-14 10:18:37 warn: Password is incorrect
+2025-03-14 10:19:05 warn: User not found
+2025-03-14 10:19:07 warn: User not found
+2025-03-14 10:19:09 warn: User not found
+2025-03-14 10:19:11 warn: User not found
+2025-03-14 10:19:13 warn: User not found
+2025-03-14 10:19:26 info: Login successful for user: MinhDao@gmail.com, username: Minh2509

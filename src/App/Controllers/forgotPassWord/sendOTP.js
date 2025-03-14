@@ -8,7 +8,7 @@ const sendMail = require("../../../helper/sendMail");
 
 class SendOTP {
   constructor() {
-    this.sendOTP = this.sendOTP.bind(this); // 🔹 Giữ ngữ cảnh của `this`
+    this.sendOTP = this.sendOTP.bind(this);
   }
 
   //  Tạo mã OTP gồm 6 chữ số

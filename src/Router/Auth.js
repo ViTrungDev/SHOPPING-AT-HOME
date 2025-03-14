@@ -7,6 +7,7 @@ const Admin = require("../App/Controllers/Admin/adminController");
 const profile = require("../App/Controllers/profile_user/profile_persion.js");
 const forgotPassWordController = require("../App/Controllers/forgotPassWord/forgotPassWordController");
 const sendOTP = require("../App/Controllers/forgotPassWord/sendOTP");
+const comfirmPassword = require("../App/Controllers/forgotPassWord/comfirmPassword");
 // Đăng ký
 router.post("/register", authController.register);
 router.get("/register", authController.ViewRegister);
@@ -19,6 +20,7 @@ router.post("/login", authController.login);
 router.get("/forgot", forgotPassWordController.ViewForgot);
 router.get("/forgotOTP", forgotPassWordController.ViewOTP);
 router.get("/forgotOTP/comfirm_password", forgotPassWordController.ComfirmOTP);
+router.post("/forgotOTP/comfirm_password", comfirmPassword.comfirmPassword);
 router.post("/forgotOTP", sendOTP.sendOTP);
 router.post("/forgot", authController.forgot);
 

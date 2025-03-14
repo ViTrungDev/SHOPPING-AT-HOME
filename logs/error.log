@@ -22,3 +22,8 @@
 2025-03-03 23:32:47 error: Error register
 2025-03-04 00:24:37 error: Lỗi gửi OTP: loger.error is not a function
 2025-03-04 00:26:52 error: Lỗi gửi OTP: logger.error is not a function
+2025-03-08 22:55:58 error: Lỗi reset mật khẩu: bcrypt is not defined
+2025-03-08 22:58:01 error: Lỗi reset mật khẩu: bcrypt is not defined
+2025-03-08 22:58:02 error: Lỗi reset mật khẩu: bcrypt is not defined
+2025-03-08 23:00:30 error: Lỗi reset mật khẩu: data and hash arguments required
+2025-03-08 23:01:10 error: Lỗi reset mật khẩu: data and hash arguments required

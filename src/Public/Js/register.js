@@ -1,60 +1,74 @@
+import { showNotification } from "../component/SharedNotification";
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("registerForm");
 
-  // Nếu không tìm thấy form, thoát khỏi script
   if (!form) return;
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
-    console.log("Submit form!");
+    console.log("Submit form đăng ký!");
 
-    // Hiển thị hiệu ứng loading
     const loader = document.querySelector(".loader");
-    if (loader) {
-      loader.classList.add("active"); // Sử dụng class để kích hoạt loader
-    }
+    if (loader) loader.classList.add("active");
 
     const formData = {
-      surname: document.getElementById("surname").value,
-      username: document.getElementById("username").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      password: document.getElementById("password").value,
-      confirm_password: document.getElementById("confirm_password").value,
-      remember: document.getElementById("remember").checked,
+      surname: document.getElementById("surname").value.trim(),
+      username: document.getElementById("username").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      password: document.getElementById("password").value.trim(),
+      confirm_password: document
+        .getElementById("confirm_password")
+        .value.trim(),
     };
 
-    if (formData.password !== formData.confirm_password) {
-      const loader = document.querySelector(".loader");
-      if (loader) {
-        loader.classList.add("active"); // Sử dụng class để kích hoạt loader
-      }
+    // Kiểm tra nhập đầy đủ thông tin
+    if (
+      !formData.surname ||
+      !formData.username ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.password ||
+      !formData.confirm_password
+    ) {
+      showNotification("Vui lòng nhập đầy đủ thông tin!", "red");
+      if (loader) loader.classList.remove("active");
+      return;
+    }
 
-      return alert("Mật khẩu không khớp");
+    // Kiểm tra mật khẩu trùng khớp
+    if (formData.password !== formData.confirm_password) {
+      showNotification("Mật khẩu không khớp!", "red");
+      if (loader) loader.classList.remove("active");
+      return;
     }
 
     try {
       const response = await fetch("/auth/register", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
       const result = await response.json();
 
       if (response.ok) {
-        window.location.href = "/auth/login";
+        console.log("Đăng ký thành công!");
+        showNotification("Đăng ký thành công! Chuyển hướng...", "green");
+
+        setTimeout(() => {
+          window.location.href = "/auth/login";
+        }, 1500);
       } else {
-        console.log("Lỗi khi gửi yêu cầu", result);
+        console.log("Lỗi khi đăng ký:", result);
+        showNotification(result.message || "Đăng ký thất bại!", "red");
       }
     } catch (error) {
-      console.log("Lỗi khi gửi yêu cầu", error);
+      console.error("Lỗi kết nối server:", error);
+      showNotification("Lỗi kết nối đến server!", "gray");
     } finally {
-      const loader = document.querySelector(".loader");
-      if (loader) {
-        loader.classList.remove("active"); // Ẩn loader
-      }
+      if (loader) loader.classList.remove("active");
     }
   });
 });
