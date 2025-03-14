@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Xử lý sự kiện click cho category-item
   var items = document.querySelectorAll(".category-item");
   items.forEach(function (item) {
     item.addEventListener("click", function () {
@@ -8,21 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
       item.classList.add("active");
     });
   });
-  //   show slider
-  let sliderIndex = 0;
-  function showSlider() {
-    let i;
-    let sliders = document.querySelectorAll(".ShowSlider");
-    for (i = 0; i < sliders.length; i++) {
-      sliders[i].style.display = "none";
-      sliders[i].classList.remove("active");
-    }
-    sliderIndex++;
-    if (sliderIndex > sliders.length) {
-      sliderIndex = 1;
-    }
-    sliders[sliderIndex - 1].style.display = "block";
-    sliders[sliderIndex - 1].classList.add("active");
+
+  // Xử lý slider
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".ShowSlider");
+  const slideDuration = 3000; // 3 giây mỗi ảnh
+  const transitionDuration = 1000; // 1 giây chuyển đổi
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove("active", "prev"));
+
+    let currentSlide = slides[slideIndex];
+    let prevSlide = slides[(slideIndex - 1 + slides.length) % slides.length];
+
+    currentSlide.classList.add("active");
+    prevSlide.classList.add("prev"); // Ẩn về bên trái
+
+    slideIndex = (slideIndex + 1) % slides.length;
   }
-  setInterval(showSlider, 2000);
+
+  showSlides(); // Hiển thị ảnh đầu tiên
+  setInterval(showSlides, slideDuration);
 });

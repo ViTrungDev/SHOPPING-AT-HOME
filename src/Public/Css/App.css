@@ -14,7 +14,7 @@
 body {
   font-size: 0.875 rem;
   font-family: "Inter", sans-serif;
-  background: #D9D9D9 !important;
+  background-color: #fff !important;
 }
 
 p {
@@ -88,11 +88,6 @@ a {
 }
 
 /*============================== header =========================*/
-.header {
-  background-color: #fff;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-}
-
 .header-top {
   display: flex;
   justify-content: flex-end;
@@ -318,40 +313,41 @@ span > a {
 }
 
 /*=============================== Slider =======================*/
-.ShowSlider {
-  display: none;
-  border: 1px solid #ccc;
+.slider-container {
+  width: 950px;
+  height: 510px;
+  overflow: hidden;
+  position: relative;
+  max-width: 800px;
+  margin: 20px 19px 20px 0px;
 }
 
+.ShowSlider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo ảnh vừa với container */
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transform: translateX(100%);
+}
+
+.ShowSlider.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.ShowSlider.prev {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+/* Căn giữa ảnh bên trong nếu cần */
 .ShowSlider img {
   width: 100%;
-}
-
-.active {
-  display: block;
-  background-color: #717171;
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.ShowSlider {
-  margin: 39px 27px 16px 27px;
-}
-
-.ShowSlider > img {
-  width: 892px;
-  height: 501px;
+  height: 100%;
+  object-fit: cover; /* Giữ tỉ lệ và cắt phần dư */
 }
 
 /*============================== Selling ====================*/
