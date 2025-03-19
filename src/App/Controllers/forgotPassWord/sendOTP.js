@@ -18,8 +18,8 @@ class SendOTP {
 
   //  Gửi OTP qua email
   async sendOTP(req, res) {
+    const { email } = req.body;
     try {
-      const { email } = req.body;
       logger.info(`Gửi mã OTP đến email ${email}`);
 
       //  Kiểm tra xem email có tồn tại không
@@ -39,6 +39,7 @@ class SendOTP {
         email,
         code: hashedOTP,
         expiresAt: new Date(Date.now() + 60 * 3000),
+        verified: false,
       });
 
       //  Đọc nội dung email từ file HTML

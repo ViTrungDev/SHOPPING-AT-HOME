@@ -20,7 +20,11 @@ router.post("/login", authController.login);
 router.get("/forgot", forgotPassWordController.ViewForgot);
 router.get("/forgotOTP", forgotPassWordController.ViewOTP);
 router.get("/forgotOTP/comfirm_password", forgotPassWordController.ComfirmOTP);
-router.post("/forgotOTP/comfirm_password", comfirmPassword.comfirmPassword);
+router.post("/forgotOTP/comfirm_password", comfirmPassword.verifyOTP);
+router.post(
+  "/forgotOTP/comfirm_password/updat_password",
+  comfirmPassword.updatePassword
+);
 router.post("/forgotOTP", sendOTP.sendOTP);
 router.post("/forgot", authController.forgot);
 

@@ -549,6 +549,7 @@ input:focus {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-left: 5px;
 }
 
 .register__form--remember > div {
@@ -669,18 +670,12 @@ input:focus {
 }
 
 /*====================== loading ========================*/
+/* From Uiverse.io by SchawnnahJ */
 .loader {
-  position: absolute;
-  top: calc(50% - 1.25em);
-  left: calc(50% - 1.25em);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.loader.active {
-  visibility: visible;
-  opacity: 1;
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
 }
 
 .loader:before, .loader:after {
@@ -737,6 +732,12 @@ input:focus {
     box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
   }
 }
+.loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+}
+
 /*==============================/auth/login==============================*/
 #PhoneOrEmail, #inputPassword {
   width: 458px;
@@ -1335,6 +1336,13 @@ input:focus {
 
 .comfirm--otp {
   padding: 20px 25px;
+}
+
+.message-error {
+  position: relative;
+  top: -27px;
+  left: 45px;
+  box-sizing: border-box;
 }
 
 /*========================================= reset pass ===================================*/

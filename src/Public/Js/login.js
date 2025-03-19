@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const loader = document.querySelector(".loader");
   const form = document.getElementById("LoginForm");
 
   if (!form) return;
@@ -8,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     console.log("Submit login form!");
 
-    if (loader) loader.classList.add("active");
+    // if (loader) loader.classList.add("active");
 
     const getEmailOrPhone = document.getElementById("PhoneOrEmail");
     const getPassword = document.getElementById("inputPassword");
@@ -67,8 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Lỗi request:", error);
       if (window.showNotification)
         showNotification("Lỗi đăng nhập! Vui lòng thử lại.", "error");
-    } finally {
-      if (loader) loader.classList.remove("active");
     }
   });
 });
