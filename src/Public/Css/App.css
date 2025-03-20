@@ -816,15 +816,35 @@ input:focus {
 .card__title {
   font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
 
 /* Các mục trong danh sách "On Sale" */
 .card__item {
   display: flex;
   border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.best-deals__item:nth-child(n+7) {
+  display: none;
+}
+
+.card__item:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.slider-btn__left {
+  top: 38%;
+  z-index: 1;
+}
+
+.slider-btn__right {
+  right: 1%;
+  bottom: 50%;
 }
 
 .card__item img {
@@ -841,6 +861,10 @@ input:focus {
 .card__item-price {
   color: #10b981;
   font-weight: bold;
+}
+
+.card__item--title {
+  margin-top: 5px;
 }
 
 .card__item-old-price {
@@ -867,21 +891,61 @@ input:focus {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  transition: transform 2.5s cubic-bezier(0.3, 0.8, 0.1, 1);
+  will-change: transform;
 }
 
 /* Responsive */
 @media (min-width: 768px) {
   .best-deals__grid {
+    margin-top: 20px;
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 1024px) {
   .best-deals__grid {
+    margin-top: 20px;
     grid-template-columns: repeat(6, 1fr);
   }
 }
+.best-deals__container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-btn {
+  position: absolute;
+  transform: translateY(-50%);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.best-deals__container:hover .slider-btn {
+  opacity: 1;
+}
+
+.best-deals__item p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
 .best-deals__item {
   text-align: center;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.best-deals__item:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .best-deals__item img {

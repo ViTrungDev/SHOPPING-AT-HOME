@@ -30,4 +30,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showSlides(); // Hiển thị ảnh đầu tiên
   setInterval(showSlides, slideDuration);
+  /* ====================================== code phần slider sản phẩm (Best Deals) =================================*/
+  //Xử lý slider sản phẩm (Best Deals)
+  const slider = document.querySelector(".best-deals__grid");
+  const prevBtn = document.querySelector(".slider-btn__left");
+  const nextBtn = document.querySelector(".slider-btn__right");
+  const onSaleSection = document.querySelector(".card__title");
+
+  let autoSlideInterval;
+  let isOnSaleVisible = false;
+
+  //Kiểm tra người dùng đã cuộn đến phần "On Sale"
+  function checkOnSaleVisibility() {
+    const rect = onSaleSection.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+  }
+
+  // Auto slide khi cuộn đến phần On Sale
+  function handleScroll() {
+    if (checkOnSaleVisibility() && !isOnSaleVisible) {
+      isOnSaleVisible = true;
+      startAutoSlide();
+    }
+  }
+
+  //Hàm trượt slider (trái -> phải như vòng lặp)
+  function slideRight() {
+    const firstItem = slider.firstElementChild;
+    slider.appendChild(firstItem);
+  }
+
+  //Hàm trượt slider (phải -> trái như vòng lặp)
+  function slideLeft() {
+    const lastItem = slider.lastElementChild;
+    slider.prepend(lastItem);
+  }
+
+  //Tự động trượt slider khi cuộn đến phần On Sale
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(slideRight, 3000); // Tự động trượt mỗi s
+  }
+
+  // Thêm sự kiện click cho nút
+  prevBtn.addEventListener("click", function () {
+    clearInterval(autoSlideInterval);
+    slideLeft();
+    startAutoSlide();
+  });
+
+  nextBtn.addEventListener("click", function () {
+    clearInterval(autoSlideInterval);
+    slideRight();
+    startAutoSlide();
+  });
+
+  // Lắng nghe sự kiện cuộn trang
+  window.addEventListener("scroll", handleScroll);
 });
