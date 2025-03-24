@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showSlides(); // Hiển thị ảnh đầu tiên
   setInterval(showSlides, slideDuration);
+
   /* ====================================== code phần slider sản phẩm (Best Deals) =================================*/
   //Xử lý slider sản phẩm (Best Deals)
   const slider = document.querySelector(".best-deals__grid");
