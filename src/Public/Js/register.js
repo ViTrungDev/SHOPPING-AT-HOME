@@ -1,5 +1,3 @@
-import { showNotification } from "../component/SharedNotification";
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("registerForm");
 

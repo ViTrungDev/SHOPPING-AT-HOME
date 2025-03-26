@@ -23,6 +23,16 @@ p {
   margin-bottom: 5px;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Loại bỏ mũi tên trên trình duyệt Webkit (Chrome, Safari) */
+  margin: 0; /* Loại bỏ khoảng trống */
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Loại bỏ mũi tên trên Firefox */
+}
+
 /* ===================================== common all =========================== */
 .main-content {
   width: 1440px;
@@ -1560,7 +1570,7 @@ input:focus {
   border-radius: 4px;
   border: 1px solid transparent;
   width: 514px;
-  height: 514px;
+  height: auto;
   flex-shrink: 0;
   aspect-ratio: 1/1;
 }
@@ -1910,6 +1920,43 @@ input:focus {
 
 .product_about:hover {
   opacity: 0.9;
+}
+
+.hidden {
+  display: none;
+}
+
+/*================ starting =================*/
+.rating {
+  display: flex;
+  direction: ltr; /* Sắp xếp từ trái sang phải */
+}
+
+.rating input {
+  display: none; /* Ẩn radio button */
+}
+
+.rating label {
+  cursor: pointer;
+  fill: #ccc; /* Màu mặc định của SVG (xám) */
+  transition: fill 0.3s ease;
+}
+
+/* Ngôi sao đầu tiên luôn sáng */
+.rating label:first-of-type > svg {
+  fill: #ff9e0b; /* Màu vàng cho ngôi sao đầu tiên */
+}
+
+/* Các sao từ ngôi sao đầu tiên đến sao được click sẽ sáng */
+.rating input:checked + label,
+.rating input:checked + label ~ label {
+  fill: #ff9e0b; /* Đổi màu vàng cho các sao từ trái sang phải */
+}
+
+/* Hover sáng tạm thời từ trái sang phải */
+.rating label:hover,
+.rating label:hover ~ label {
+  fill: #ffcc33; /* Màu vàng nhạt khi hover */
 }
 
 /*# sourceMappingURL=App.css.map */

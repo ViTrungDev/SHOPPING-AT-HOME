@@ -8,13 +8,13 @@
     </nav>
     <div class="container_product product-details">
         <div class="product-details__left">
-            <img src="/Acssets/image/luu_Big.png" alt="Product Image" class="product-image">
+            <img src="/Acssets/image/luu_Big.png" alt="Product Image" class="product-image" id="main_image">
             <div class="thumbnail-list">
-                <img src="/Acssets/image/Nho.png" alt="Thumbnail 1" class="active">
-                <img src="/Acssets/image/Nho.png" alt="Thumbnail 2">
-                <img src="/Acssets/image/Nho.png" alt="Thumbnail 3">
-                <img src="/Acssets/image/Nho.png" alt="Thumbnail 4">
-                <img src="/Acssets/image/Nho.png" alt="Thumbnail 4">
+                <img src="/Acssets/image/luu_Big.png" alt="Thumbnail 1" class="Thumbnail active" data-src-large="/Acssets/image/luu_Big.png">
+                <img src="/Acssets/image/Bo.png" alt="Thumbnail 2" class="Thumbnail" data-src-large="/Acssets/image/Bo.png">
+                <img src="/Acssets/image/caChua.png" alt="Thumbnail 3" class="Thumbnail" data-src-large="/Acssets/image/caChuaBig.png" >
+                <img src="/Acssets/image/Rau.png" alt="Thumbnail 4" class="Thumbnail" data-src-large="/Acssets/image/dauBig.png">
+                <img src="/Acssets/image/luu_Big.png" alt="Thumbnail 4" class="Thumbnail" data-src-large="/Acssets/image/luu_Big.png">
             </div>
         </div>
 
@@ -41,15 +41,15 @@
 
             <div class="options">
                 <p>Tùy chọn:</p>
-                <button>Thùng</button>
-                <button>Lốc</button>
-                <button class="active">Hộp</button>
+                <button class="options_btn">Thùng</button>
+                <button class="options_btn">Lốc</button>
+                <button class="options_btn active">Hộp</button>
             </div>
 
             <div class="quantity">
                 <p>Số lượng</p>
                 <button class="quantity__btn" id="quantity__btn--minus">-</button>
-                <input type="number" value="1" min="1" max="500">
+                <input type="number" value="1" min="1" max="500" readonly>
                 <button class="quantity__btn" id="quantity__btn--add">+</button>
                 <p>500 sản phẩm có sẵn</p>
             </div>
@@ -62,11 +62,11 @@
     </div>
 
     <section class="tabs">
-        <button class="tab active">Thông Tin</button>
-        <button class="tab ">Chi tiết</button>
-        <button class="tab">Đánh Giá</button>
+        <button class="tab active" data-tab="info">Thông Tin</button>
+        <button class="tab" data-tab="details">Chi tiết</button>
+        <button class="tab" data-tab="reviews">Đánh Giá</button>
     </section>
-    <div class="tab-content">
+    <div class="tab-content hidden">
         <h2>Giới thiệu sản phẩm</h2>
         <p>Được sản xuất từ các nguyên liệu cao cấp, đảm bảo việc tạo ra sản phẩm có chất lượng cao, an toàn cho người sử dụng. Sản phẩm với vị ngọt dịu ngọt hoà cùng vị chua chua đặc trưng, giúp tăng cường hệ vi sinh trong đường ruột, giúp hoạt động tiêu hóa được tốt hơn,...</p>
         <h2>Thành phần dinh dưỡng trong lốc 5 chai sữa chua uống men sống ít đường Vinamilk Probi 65ml</h2>
@@ -74,140 +74,262 @@
         Trong 100ml sữa chua uống men sống có đường Vinamilk Probi có chứa 63.6kcal</p>
         <h2>Tác dụng của lốc 5 chai sữa chua uống men sống ít đường Vinamilk Probi 65ml với sức khỏe</h2>
         <p>
-          Sữa chua men sống Vinamilk Probi ít đường 65ml chứa ít đường, không chất béo, được ủ men lâu hơn 7 lần sản phẩm sữa chua bình thường để đảm bảo lượng lợi khuẩn trong từng hũ sữa chua.
-          Sử dụng công nghệ men sống hiện đại Châu Âu, chứa đến 65 tỷ lợi khuẩn L.Casei 431 trong 1 lốc sữa chua, mang lại nhiều công dụng tốt cho sức khỏe:
-          Hạn chế cảm cúm.
-          Hỗ trợ tăng sức đề kháng.
-          Giúp hỗ trợ miễn dịch đường ruột khỏe mạnh hơn.
+            Sữa chua men sống Vinamilk Probi ít đường 65ml chứa ít đường, không chất béo, được ủ men lâu hơn 7 lần sản phẩm sữa chua bình thường để đảm bảo lượng lợi khuẩn trong từng hũ sữa chua.
+            Sử dụng công nghệ men sống hiện đại Châu Âu, chứa đến 65 tỷ lợi khuẩn L.Casei 431 trong 1 lốc sữa chua, mang lại nhiều công dụng tốt cho sức khỏe:
+            Hạn chế cảm cúm.
+            Hỗ trợ tăng sức đề kháng.
+            Giúp hỗ trợ miễn dịch đường ruột khỏe mạnh hơn.
         </p>
         <h2>Cách bảo quản và lưu ý khi sử dụng</h2>
         <p>
-          Bảo quản nơi khô thoáng, tránh ánh nắng mặt trời chiếu trực tiếp.
-          Lưu ý, phù hợp cho trẻ em từ 1 tuổi trở lên.
-          Dùng hết ngay sau khi mở chai.
-          Giữ lạnh ở nhiệt độ từ 6 - 8 độ C.
-          Lắc đều trước khi sử dụng.
-          Không sử dụng sản phẩm quá hạn.
+            Bảo quản nơi khô thoáng, tránh ánh nắng mặt trời chiếu trực tiếp.
+            Lưu ý, phù hợp cho trẻ em từ 1 tuổi trở lên.
+            Dùng hết ngay sau khi mở chai.
+            Giữ lạnh ở nhiệt độ từ 6 - 8 độ C.
+            Lắc đều trước khi sử dụng.
+            Không sử dụng sản phẩm quá hạn.
         </p>
     </div>
+    <div class="tab-content hidden">
+        <h2>Giới thiệu sản phẩm</h2>
+        <p>Được sản xuất từ các nguyên liệu cao cấp, đảm bảo việc tạo ra sản phẩm có chất lượng cao, an toàn cho người sử dụng. Sản phẩm với vị ngọt dịu ngọt hoà cùng vị chua chua đặc trưng, giúp tăng cường hệ vi sinh trong đường ruột, giúp hoạt động tiêu hóa được tốt hơn,...</p>
+        <h2>Thành phần dinh dưỡng trong lốc 5 chai sữa chua uống men sống ít đường Vinamilk Probi 65ml</h2>
+        <p>Lốc 5 chai sữa chua uống men sống Vinamilk Probi ít đường 65ml có chứa những thành phần dinh dưỡng: Năng lượng, chất đạm, chất béo, hydrat cacbon, vitamin D3,...
+        Trong 100ml sữa chua uống men sống có đường Vinamilk Probi có chứa 63.6kcal</p>
+        <h2>Tác dụng của lốc 5 chai sữa chua uống men sống ít đường Vinamilk Probi 65ml với sức khỏe</h2>
+        <p>
+            Sữa chua men sống Vinamilk Probi ít đường 65ml chứa ít đường, không chất béo, được ủ men lâu hơn 7 lần sản phẩm sữa chua bình thường để đảm bảo lượng lợi khuẩn trong từng hũ sữa chua.
+            Sử dụng công nghệ men sống hiện đại Châu Âu, chứa đến 65 tỷ lợi khuẩn L.Casei 431 trong 1 lốc sữa chua, mang lại nhiều công dụng tốt cho sức khỏe:
+            Hạn chế cảm cúm.
+            Hỗ trợ tăng sức đề kháng.
+            Giúp hỗ trợ miễn dịch đường ruột khỏe mạnh hơn.
+        </p>
+        <h2>Cách bảo quản và lưu ý khi sử dụng</h2>
+        <p>
+            Bảo quản nơi khô thoáng, tránh ánh nắng mặt trời chiếu trực tiếp.
+            Lưu ý, phù hợp cho trẻ em từ 1 tuổi trở lên.
+            Dùng hết ngay sau khi mở chai.
+            Giữ lạnh ở nhiệt độ từ 6 - 8 độ C.
+            Lắc đều trước khi sử dụng.
+            Không sử dụng sản phẩm quá hạn.
+        </p>
+    </div>
+    <div class="tab-content ">
+        <div class="review-section">
+        <h2>Đánh giá sản phẩm</h2>
+        <div class="rating-summary">
+            <span class="overall-score">1.4 <small>trên 5</small></span>
+                <div class="rating">
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="1 sao">
+                    <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                    ></path>
+                    </svg>
+                </label>
+
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="2 sao">
+                    <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                    ></path>
+                    </svg>
+                </label>
+
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="3 sao">
+                    <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                    ></path>
+                    </svg>
+                </label>
+
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="4 sao">
+                    <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                    ></path>
+                    </svg>
+                </label>
+
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="5 sao">
+                    <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                    ></path>
+                    </svg>
+                </label>
+                </div>
+
+            <div class="rating-filters">
+                <button>Bình thường</button>
+                <button>5 Sao (12)</button>
+                <button>4 Sao (12)</button>
+                <button>3 Sao (12)</button>
+                <button>2 Sao (12)</button>
+                <button>1 Sao (12)</button>
+                <button>Đánh giá có Bình luận (12)</button>
+                <button>Đánh giá có Ảnh/Video (12)</button>
+            </div>
+        </div>
+
+        <div class="user-review">
+            <div class="review">
+                <strong>Hạnh Trần</strong>
+                <p>“Mình thích loại ít đường này hơn hẳn, không cảm thấy ngọt gắt mà vẫn rất ngon miệng. Uống đều đặn giúp hệ tiêu hóa khỏe mạnh hơn nhiều.”</p>
+            </div>
+
+            <div class="review">
+                <strong>Ngọc Thúy</strong>
+                <p>“Dễ uống, tiện lợi và tốt cho sức khỏe. Một lựa chọn hoàn hảo cho những ai muốn kiểm soát lượng đường mà vẫn đảm bảo dinh dưỡng.”</p>
+            </div>
+
+            <div class="review">
+                <strong>Ngọc Thúy</strong>
+                <p>“Dễ uống, tiện lợi và tốt cho sức khỏe. Một lựa chọn hoàn hảo cho những ai muốn kiểm soát lượng đường mà vẫn đảm bảo dinh dưỡng.”</p>
+                <div class="review-images">
+                    <img src="image1.jpg" alt="Review Image 1">
+                    <img src="image2.jpg" alt="Review Image 2">
+                </div>
+            </div>
+        </div>
+
+        <div class="add-review">
+            <h3>Đánh giá sản phẩm</h3>
+            <div class="rating-stars">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <input type="text" placeholder="Tên của bạn">
+            <textarea placeholder="Đánh giá của bạn"></textarea>
+            <button>Bình Luận</button>
+        </div>
+    </div>
+
+    </div>
     <div class="similar-items">
-      <h2 class="similar-items__title">
+    <h2 class="similar-items__title">
         Sản phẩm liên quan
-      </h2>
+    </h2>
         <div class="best-deals__container">
-                      <div class="best-deals__grid">
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-                              <p>Dâu Là lan</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 200,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/daoBig.png" alt="Strawberry">
-                              <p>Đào Hà Nội</p>
-                              <p class="card__item-price">$ 30,500₫</p>
-                              <p class="card__item-old-price">$ 45,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/caChuaBig.png" alt="Peach">
-                              <p>Cà chua Hà Nam</p>
-                              <p class="card__item-price">$ 15,500₫</p>
-                              <p class="card__item-old-price">$ 25,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/luu_big.png" alt="Grapes">
-                              <p>Lựu Hải Phòng</p>
-                              <p class="card__item-price">$ 40,500₫</p>
-                              <p class="card__item-old-price">$ 50,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/nhoBig.png" alt="Avocado">
-                              <p>Thùng Sữa chua uống Probi ít Đường chai 130ml -24 chai/ Thùng Yogurt</p>
-                              <p class="card__item-price">$ 238,500₫</p>
-                              <p class="card__item-old-price">$ 238,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/dauBig.png" alt="Papaya">
-                              <p>Thùng Sữa chua uống Probi ít Đường chai 130ml -24 chai/ Thùng Yogurt</p>
-                              <p class="card__item-price">$ 238,500₫</p>
-                              <p class="card__item-old-price">$ 238,500₫</p>
-                          </div>
-                          <div class="similar-items__contaiter">
-                              <img src="/Acssets/image/nhoBig.png" alt="Avocado">
-                              <p>Thùng Sữa chua uống Probi ít Đường chai 130ml -24 chai/ Thùng Yogurt</p>
-                              <p class="card__item-price">$ 238,500₫</p>
-                              <p class="card__item-old-price">$ 238,500₫</p>
-                          </div>
-                      </div>
+                        <div class="best-deals__grid">
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
+                                <p>Dâu Là lan</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 200,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/daoBig.png" alt="Strawberry">
+                                <p>Đào Hà Nội</p>
+                                <p class="card__item-price">$ 30,500₫</p>
+                                <p class="card__item-old-price">$ 45,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/caChuaBig.png" alt="Peach">
+                                <p>Cà chua Hà Nam</p>
+                                <p class="card__item-price">$ 15,500₫</p>
+                                <p class="card__item-old-price">$ 25,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/luu_big.png" alt="Grapes">
+                                <p>Lựu Hải Phòng</p>
+                                <p class="card__item-price">$ 40,500₫</p>
+                                <p class="card__item-old-price">$ 50,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/nhoBig.png" alt="Avocado">
+                                <p>Thùng Sữa chua uống Probi ít Đường chai 130ml -24 chai/ Thùng Yogurt</p>
+                                <p class="card__item-price">$ 238,500₫</p>
+                                <p class="card__item-old-price">$ 238,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/dauBig.png" alt="Papaya">
+                                <p>Thùng Sữa chua uống Probi ít Đường chai 130ml -24 chai/ Thùng Yogurt</p>
+                                <p class="card__item-price">$ 238,500₫</p>
+                                <p class="card__item-old-price">$ 238,500₫</p>
+                            </div>
+                            <div class="similar-items__contaiter">
+                                <img src="/Acssets/image/nhoBig.png" alt="Avocado">
+                                <p>Thùng Sữa chua uống Probi ít Đường chai 130ml -24 chai/ Thùng Yogurt</p>
+                                <p class="card__item-price">$ 238,500₫</p>
+                                <p class="card__item-old-price">$ 238,500₫</p>
+                            </div>
+                        </div>
         </div>
     </div>
     <div class="product-details__footer">
         <button class="product_about">Xem thêm >></button>
     </div>
 </main>
+<script src="/Js/product_details.js"></script>
