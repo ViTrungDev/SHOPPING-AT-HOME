@@ -250,39 +250,29 @@
 
 {{!-- product-list --}}
     <div class="product-list">
-        <button class="product--slider__btn slider-btn__left"><i class="fa-solid fa-circle-chevron-left fa-flip-vertical" style="color: #53d08f;"></i></button>
-        <div class="product">
-            <img src="/Acssets/image/luu_Big.png" alt="Pomegranate">
-            <p class="product__desc">Thùng Sữa chua uống Probi Ít Đường chai 130ml -24 chai/Thùng Yogurt</p>
-            <p class="price">$ 238,500đ</p>
-            <p class="old-price">$ 238,500đ</p>
-        </div>
-        <div class="product">
-            <img src="/Acssets/image/dauBig.png" alt="Pomegranate">
-            <p class="product__desc">Thùng Sữa chua uống Probi Ít Đường chai 130ml -24 chai/Thùng Yogurt</p>
-            <p class="price">$ 238,500đ</p>
-            <p class="old-price">$ 238,500đ</p>
-        </div>
-        <div class="product">
-            <img src="/Acssets/image/daoBig.png" alt="Pomegranate">
-            <p class="product__desc">Thùng Sữa chua uống Probi Ít Đường chai 130ml -24 chai/Thùng Yogurt</p>
-            <p class="price">$ 238,500đ</p>
-            <p class="old-price">$ 238,500đ</p>
-        </div>
-        <div class="product">
-            <img src="/Acssets/image/nhoBig.png" alt="Pomegranate">
-            <p class="product__desc">Thùng Sữa chua uống Probi Ít Đường chai 130ml -24 chai/Thùng Yogurt</p>
-            <p class="price">$ 238,500đ</p>
-            <p class="old-price">$ 238,500đ</p>
-        </div>
-        <div class="product">
-            <img src="/Acssets/image/caChuaBig.png" alt="Pomegranate">
-            <p class="product__desc">Thùng Sữa chua uống Probi Ít Đường chai 130ml -24 chai/Thùng Yogurt</p>
-            <p class="price">$ 238,500đ</p>
-            <p class="old-price">$ 238,500đ</p>
-        </div>
-        <button class="product--slider__btn product--slider-btn__right"><i class="fa-solid fa-circle-chevron-left fa-flip-both" style="color: #53d08f;"></i></button>
-    </div>
+    <button class="product--slider__btn slider-btn__left">
+        <i class="fa-solid fa-circle-chevron-left fa-flip-vertical" style="color: #53d08f;"></i>
+    </button>
+
+    {{#each products}}
+            <div class="product">
+                <a href="/products/{{this.slug}}" class="product-link">
+                    <img src="{{this.image}}" alt="{{this.name}}">
+                    <p class="product__desc">{{this.name}}</p>
+                    <p class="product__desc">{{this.description}}</p>
+                    <div style="display:flex;justify-content:space-between;">
+                        <p class="price">{{this.price}}₫</p>
+                        <p class="product__desc"><span style="font-size: 12px;">SL:</span>{{this.quantity}}</p>
+                    </div>
+                </a>
+            </div>
+    {{/each}}
+
+    <button class="product--slider__btn product--slider-btn__right">
+        <i class="fa-solid fa-circle-chevron-left fa-flip-both" style="color: #53d08f;"></i>
+    </button>
+</div>
+
 {{!-- ================== promo-banners =================--}}
     <div class="promo-banners">
         <div class="promo-banners--left">

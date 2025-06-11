@@ -1,0 +1,137 @@
+<style>
+    .containerProduct {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 10px 15px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    .image-input {
+        margin-bottom: 10px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .image-preview {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .image-preview img {
+        max-width: 100px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .removeImageBtn {
+        margin-top: 5px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <p class="Back"><a href="">Quay trở về</a></p>
+    <div class="containerProduct">
+        <h1>Đăng Sản Phẩm</h1>
+        <form id="productForm" enctype="multipart/form-data">
+            <label for="name">Tên sản phẩm:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="price">Giá:</label>
+            <input type="number" id="price" name="price" required>
+
+            <label for="quantity">Số lượng:</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="descriptionMethod">Chọn phương thức mô tả:</label>
+            <select id="descriptionMethod" required>
+                <option value="input">Nhập mô tả</option>
+                <option value="upload">Tải lên tệp mô tả</option>
+            </select>
+
+            <div id="descriptionInput">
+                <label for="description">Mô tả:</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+
+            <div id="descriptionUpload" class="hidden">
+                <label for="descriptionFile">Tải lên tệp mô tả:</label>
+                <input type="file" id="descriptionFile" accept=".txt,.doc,.docx,.pdf">
+            </div>
+
+            <label for="category">Danh mục:</label>
+            <select id="category" name="category" required>
+                <option value="">Chọn danh mục</option>
+                <option value="electronics">Đồ khô</option>
+                <option value="fashion">Đồ uống</option>
+                <option value="home">Mỹ phẩm</option>
+                <option value="toys">Vệ sinh cá nhân</option>
+                <option value="electronics">Đồ dùng điện tử</option>
+                <option value="home">Đồ dùng gia đình</option>
+                <option value="home">Thực phẩm tươi sống</option>
+                <option value="home">Thực phẩm chế biến sẵn</option>
+                <option value="fashion">Đồ dùng văn phòng phẩm</option>
+            </select>
+
+            <label>Chọn phương thức nhập ảnh:</label>
+            <select id="imageMethod" required>
+                <option value="upload">Tải ảnh từ máy tính</option>
+                <option value="link">Nhập link ảnh</option>
+            </select>
+
+            <div id="imageInputs">
+                <div class="image-input" id="imageInput1">
+                    <label>Hình ảnh 1:</label>
+                    <input type="file" name="imgFile" accept="image/*" class="imgFile">
+                    <div class="image-preview" id="preview1"></div>
+                </div>
+            </div>
+
+            <button type="button" id="addImageBtn">Thêm ảnh</button>
+            <button type="submit">Đăng sản phẩm</button>
+        </form>
+    </div>
+
+    <script src="/Js/createProduct.js"></script>
+</body>

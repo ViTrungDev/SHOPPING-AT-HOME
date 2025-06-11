@@ -1059,9 +1059,23 @@ input:focus {
   flex-shrink: 0;
   background: #FFF;
   border-radius: 8px;
-  gap: 48px;
+  gap: 38px;
   position: relative;
   overflow: hidden;
+}
+
+.product_header {
+  display: flex;
+  justify-content: space-between;
+}
+.product_header span {
+  font-size: 12px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .product {
@@ -1071,6 +1085,7 @@ input:focus {
   padding: 10px;
   box-sizing: border-box;
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  border: 5px solid rgb(243, 247, 243);
 }
 
 .product:hover {
@@ -1087,15 +1102,11 @@ input:focus {
 }
 
 .product__desc {
-  margin-top: 16px;
-  margin-bottom: 21px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
   overflow: hidden;
   text-overflow: ellipsis; /* Thêm dấu "..." khi vượt quá số dòng */
-  width: 206px;
-  height: 41px;
   font-size: var(--font-primary);
   font-weight: 400;
   line-height: 1.4; /* Điều chỉnh khoảng cách dòng */
